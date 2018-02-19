@@ -1,24 +1,22 @@
 ---
-title: File Providers in ASP.NET Core | Microsoft Docs
+title: File Providers in ASP.NET Core
 author: ardalis
-description: 
-keywords: ASP.NET Core,
-ms.author: riande
+description: Learn how ASP.NET Core abstracts file system access through the use of File Providers.
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.assetid: 1e35d362-0005-4f84-a187-274ca203a787
+ms.author: riande
+ms.date: 02/14/2017
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: article
 uid: fundamentals/file-providers
 ---
 # File Providers in ASP.NET Core
 
-By [Steve Smith](http://ardalis.com)
+By [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core abstracts file system access through the use of File Providers.
 
-[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/sample)
+[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))
 
 ## File Provider abstractions
 
@@ -34,15 +32,16 @@ Three implementations of `IFileProvider` are available: Physical, Embedded, and 
 
 The `PhysicalFileProvider` provides access to the physical file system. It wraps the `System.IO.File` type (for the physical provider), scoping all paths to a directory and its children. This scoping limits access to a certain directory and its children, preventing access to the file system outside of this boundary. When instantiating this provider, you must provide it with a directory path, which serves as the base path for all requests made to this provider (and which restricts access outside of this path). In an ASP.NET Core app, you can instantiate a `PhysicalFileProvider` provider directly, or you can request an `IFileProvider` in a Controller or service's constructor through [dependency injection](dependency-injection.md). The latter approach will typically yield a more flexible and testable solution.
 
-To create a `PhysicalFileProvider`, simply instantiate it, passing it a physical path. You can then iterate through its directory contents or get a specific file's information by providing a subpath.
+The sample below shows how to create a `PhysicalFileProvider`.
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 IFileProvider provider = new PhysicalFileProvider(applicationRoot);
 IDirectoryContents contents = provider.GetDirectoryContents(""); // the applicationRoot contents
 IFileInfo fileInfo = provider.GetFileInfo("wwwroot/js/site.js"); // a file under applicationRoot
 ```
+
+You can iterate through its directory contents or get a specific file's information by providing a subpath.
 
 To request a provider from a controller, specify it in the controller's constructor and assign it to a local field. Use the local instance from your action methods:
 
@@ -62,9 +61,9 @@ The result:
 
 ### EmbeddedFileProvider
 
-The `EmbeddedFileProvider` is used to access files embedded in assemblies. In .NET Core, you embed files in an assembly by specifying them in `buildOptions` in the *project.json* file:
+The `EmbeddedFileProvider` is used to access files embedded in assemblies. In .NET Core, you embed files in an assembly with the `<EmbeddedResource>` element in the *.csproj* file:
 
-[!code-json[Main](file-providers/sample/src/FileProviderSample/project.json?highlight=4-7&range=42-49)]
+[!code-json[Main](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
 
 You can use [globbing patterns](#globbing-patterns) when specifying files to embed in the assembly. These patterns can be used to match one or more files.
 
@@ -72,8 +71,6 @@ You can use [globbing patterns](#globbing-patterns) when specifying files to emb
 > It's unlikely you would ever want to actually embed every .js file in your project in its assembly; the above sample is for demo purposes only.
 
 When creating an `EmbeddedFileProvider`, pass the assembly it will read to its constructor.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 var embeddedProvider = new EmbeddedFileProvider(Assembly.GetEntryAssembly());
@@ -86,7 +83,7 @@ Updating the sample app to use an `EmbeddedFileProvider` results in the followin
 ![File provider sample application listing embedded files](file-providers/_static/embedded-directory-listing.png)
 
 > [!NOTE]
-> Embedded resources do not expose directories. Rather, the path to the resource (via its namespace) is embedded in its filename using `.` separators.
+> Embedded resources don't expose directories. Rather, the path to the resource (via its namespace) is embedded in its filename using `.` separators.
 
 > [!TIP]
 > The `EmbeddedFileProvider` constructor accepts an optional `baseNamespace` parameter. Specifying this will scope calls to `GetDirectoryContents` to those resources under the provided namespace.
@@ -103,11 +100,11 @@ Updating the sample app to use a `CompositeFileProvider` that includes both the 
 
 ## Watching for changes
 
-The `IFileProvider` `Watch` method provides a way to watch one or more files or directories for changes. This method accepts a path string, which can use [globbing patterns](#globbing-patterns) to specify multiple files, and returns an `IChangeToken`. This token exposes a `HasChanged` property that can be inspected, and a `RegisterChangeCallback` method that is called when changes are detected to the specified path string. Note that each change token only calls its associated callback in response to a single change. To enable constant monitoring, you can use a `TaskCompletionSource` as shown below, or re-create `IChangeToken` instances in response to changes.
+The `IFileProvider` `Watch` method provides a way to watch one or more files or directories for changes. This method accepts a path string, which can use [globbing patterns](#globbing-patterns) to specify multiple files, and returns an `IChangeToken`. This token exposes a `HasChanged` property that can be inspected, and a `RegisterChangeCallback` method that's called when changes are detected to the specified path string. Note that each change token only calls its associated callback in response to a single change. To enable constant monitoring, you can use a `TaskCompletionSource` as shown below, or re-create `IChangeToken` instances in response to changes.
 
 In this article's sample, a console application is configured to display a message whenever a text file is modified:
 
-[!code-csharp[Main](file-providers/sample/src/WatchConsole/Program.cs?highlight=11,12,24,26,27)]
+[!code-csharp[Main](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
 The result, after saving the file several times:
 
@@ -138,9 +135,9 @@ File system paths use wildcard patterns called *globbing patterns*. These simple
 
    Matches all files with `.txt` extension in a specific directory.
 
-**`directory/*/project.json`**
+**`directory/*/bower.json`**
 
-   Matches all `project.json` files in directories exactly one level below the `directory` directory.
+   Matches all `bower.json` files in directories exactly one level below the `directory` directory.
 
 **<code>directory/&#42;&#42;/&#42;.txt</code>**
 

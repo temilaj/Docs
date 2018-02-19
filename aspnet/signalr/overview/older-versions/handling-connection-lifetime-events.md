@@ -1,4 +1,5 @@
 ---
+uid: signalr/overview/older-versions/handling-connection-lifetime-events
 title: "Understanding and Handling Connection Lifetime Events in SignalR 1.x | Microsoft Docs"
 author: pfletcher
 description: "This article describes how to use the events exposed by the Hubs API."
@@ -45,7 +46,7 @@ This article contains the following sections:
 - [How to continuously reconnect](#continuousreconnect)
 - [How to disconnect a client in server code](#disconnectclientfromserver)
 
-Links to API Reference topics are to the .NET 4.5 version of the API. If you're using .NET 4, see [the .NET 4 version of the API topics](https://msdn.microsoft.com/en-us/library/jj891075(v=vs.100).aspx).
+Links to API Reference topics are to the .NET 4.5 version of the API. If you're using .NET 4, see [the .NET 4 version of the API topics](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx).
 
 <a id="terminology"></a>
 

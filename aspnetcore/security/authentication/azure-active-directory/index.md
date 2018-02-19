@@ -1,23 +1,19 @@
 ---
-title: Azure Active Directory | Microsoft Docs
+title: Azure Active Directory
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
-ms.author: riande
+description: This document serves as the table of contents for the various Azure Active Directory topics related to ASP.NET Core.
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.assetid: bd272e10-7b7d-43cf-85e2-42a7f87fedb5
+ms.author: riande
+ms.date: 10/4/2017
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: article
 uid: security/authentication/azure-active-directory/index
 ---
 # Azure Active Directory
 
-* [Integrating Azure AD Into an ASP.NET Core Web App](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
+* [Integrating Azure AD Into an ASP.NET Core Web App](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
+* [Calling a ASP.NET Core Web API From a WPF Application Using Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
+* [Calling a Web API in an ASP.NET Core Web Application Using Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
+* [An ASP.NET Core web API with Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapi/)
 
-* [Calling a ASP.NET Core Web API From a WPF Application Using Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore)
-
-* [Calling a Web API in an ASP.NET Core Web Application Using Azure AD](https://azure.microsoft.com/en-us/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
-
-* [An ASP.NET Core web app with Azure AD B2C](https://azure.microsoft.com/en-us/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c)

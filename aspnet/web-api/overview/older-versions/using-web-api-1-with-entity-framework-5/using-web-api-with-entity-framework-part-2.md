@@ -1,4 +1,5 @@
 ---
+uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
 title: "Part 2: Creating the Domain Models | Microsoft Docs"
 author: MikeWasson
 description: ""
@@ -26,9 +27,9 @@ There are three ways to approach Entity Framework:
 - Model-first: You start with a visual model, and Entity Framework generates both the database and code.
 - Code-first: You start with code, and Entity Framework generates the database.
 
-We are using the code-first approach, so we start by defining our domain objects as POCOs (plain-old CLR objects). With the code-first approach, domain objects don't need any extra code to support the database layer, such as transactions or persistence. (Specifically, they do not need to inherit from the [EntityObject](https://msdn.microsoft.com/en-us/library/system.data.objects.dataclasses.entityobject.aspx) class.) You can still use data annotations to control how Entity Framework creates the database schema.
+We are using the code-first approach, so we start by defining our domain objects as POCOs (plain-old CLR objects). With the code-first approach, domain objects don't need any extra code to support the database layer, such as transactions or persistence. (Specifically, they do not need to inherit from the [EntityObject](https://msdn.microsoft.com/library/system.data.objects.dataclasses.entityobject.aspx) class.) You can still use data annotations to control how Entity Framework creates the database schema.
 
-Because POCOs do not carry any extra properties that describe [database state](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx), they can easily be serialized to JSON or XML. However, that does not mean you should always expose your Entity Framework models directly to clients, as we'll see later in the tutorial.
+Because POCOs do not carry any extra properties that describe [database state](https://msdn.microsoft.com/library/system.data.entitystate.aspx), they can easily be serialized to JSON or XML. However, that does not mean you should always expose your Entity Framework models directly to clients, as we'll see later in the tutorial.
 
 We will create the following POCOs:
 

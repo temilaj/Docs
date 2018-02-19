@@ -1,22 +1,20 @@
 ---
-title: Migrating Authentication and Identity | Microsoft Docs
+title: Migrating Authentication and Identity
 author: ardalis
 description: 
-keywords: ASP.NET Core,
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.assetid: 0db145cb-41a5-448a-b889-72e2d789ad7f
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: article
 uid: migration/identity
 ---
 # Migrating Authentication and Identity
 
-<a name=migration-identity></a>
+<a name="migration-identity"></a>
 
-By [Steve Smith](http://ardalis.com)
+By [Steve Smith](https://ardalis.com/)
 
 In the previous article we [migrated configuration from an ASP.NET MVC project to ASP.NET Core MVC](configuration.md). In this article, we migrate the registration, login, and user management features.
 
@@ -48,8 +46,6 @@ At this point, there are two types referenced in the above code that we haven't 
 
 ApplicationUser.cs:
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
@@ -62,8 +58,6 @@ namespace NewMvc6Project.Models
 ```
 
 ApplicationDbContext.cs:
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 using Microsoft.AspNetCore.Identity.EntityFramework;
@@ -78,7 +72,7 @@ namespace NewMvc6Project.Models
       Database.EnsureCreated();
     }
 
-    protected override void OnConfiguring(DbContextOptions options)
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
       options.UseSqlServer();
     }
@@ -89,8 +83,6 @@ namespace NewMvc6Project.Models
 The ASP.NET Core MVC Starter Web project doesn't include much customization of users, or the ApplicationDbContext. When migrating a real application, you will also need to migrate all of the custom properties and methods of your application's user and DbContext classes, as well as any other Model classes your application utilizes (for example, if your DbContext has a DbSet<Album>, you will of course need to migrate the Album class).
 
 With these files in place, the Startup.cs file can be made to compile by updating its using statements:
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 using Microsoft.Framework.ConfigurationModel;
@@ -107,9 +99,7 @@ With identity services configured for the application and data access configured
 
 Update _Layout.cshtml; uncomment the @Html.Partial line:
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "none"} -->
-
-```none
+```cshtml
       <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
     </ul>
     @*@Html.Partial("_LoginPartial")*@
@@ -121,9 +111,7 @@ Now, add a new MVC View Page called _LoginPartial to the Views/Shared folder:
 
 Update _LoginPartial.cshtml with the following code (replace all of its contents):
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
-```csharp
+```cshtml
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 

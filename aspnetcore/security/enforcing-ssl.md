@@ -1,18 +1,41 @@
 ---
-title: 🔧 Enforcing SSL | Microsoft Docs
+title: Enforcing HTTPS in an ASP.NET Core app
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
-ms.author: riande
+description: Shows how to require HTTPS/TLS in a ASP.NET Core web app.
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.assetid: 4694e563-e91a-4ecd-b7ed-00b3f1eee2b5
+ms.author: riande
+ms.date: 2/9/2018
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: article
 uid: security/enforcing-ssl
 ---
-# 🔧 Enforcing SSL
+# Enforcing HTTPS in an ASP.NET Core app
 
-> [!NOTE]
-> We are currently working on this topic.We welcome your input to help shape the scope and approach. You can track the status and provide input on this [issue](https://github.com/aspnet/Docs/issues/135) at GitHub.If you would like to review early drafts and outlines of this topic, please leave a note with your contact information in the [issue](https://github.com/aspnet/Docs/issues/135).Learn more about how you can [contribute](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md) on GitHub.
+By [Rick Anderson](https://twitter.com/RickAndMSFT)
+
+This document shows how to:
+
+- Require HTTPS for all requests.
+- Redirect all HTTP requests to HTTPS.
+
+> [!WARNING]
+> Do **not** use `RequireHttpsAttribute` on Web APIs that receive sensitive information. `RequireHttpsAttribute` uses HTTP status codes to redirect browsers from HTTP to HTTPS. API clients may not understand or obey redirects from HTTP to HTTPS. Such clients may send information over HTTP. Web APIs should either:
+>
+>* Not listen on HTTP.
+>* Close the connection with status code 400 (Bad Request) and not serve the request.
+
+## Require HTTPS
+
+The [RequireHttpsAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.RequireHttpsAttribute) is used to require HTTPS. `[RequireHttpsAttribute]` can decorate controllers or methods, or can be applied globally. To apply the attribute globally, add the following code to `ConfigureServices` in `Startup`:
+
+[!code-csharp[Main](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-999)]
+
+The preceding highlighted code requires all requests use `HTTPS`; therefore, HTTP requests are ignored. The following highlighted code redirects all HTTP requests to HTTPS:
+
+[!code-csharp[Main](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
+
+For more information, see [URL Rewriting Middleware](xref:fundamentals/url-rewriting).
+
+Requiring HTTPS globally (`options.Filters.Add(new RequireHttpsAttribute());`) is a security best practice. Applying the
+`[RequireHttps]` attribute to all controllers/Razor Pages isn't considered as secure as requiring HTTPS globally. You can't guarantee the `[RequireHttps]` attribute is applied when new controllers and Razor Pages are added.

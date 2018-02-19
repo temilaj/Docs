@@ -1,4 +1,5 @@
 ---
+uid: mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-vb
 title: "Authenticating Users with Windows Authentication (VB) | Microsoft Docs"
 author: microsoft
 description: "Learn how to use Windows authentication in the context of an MVC application. You learn how to enable Windows authentication within your application's web co..."
@@ -45,7 +46,7 @@ For a production web application, on the hand, you use IIS as your web server. I
 
 > [!NOTE] 
 > 
-> For a more detailed overview of these different types of authentication, see [https://msdn.microsoft.com/en-us/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/en-us/library/aa292114(VS.71).aspx).
+> For a more detailed overview of these different types of authentication, see [https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
 
 
 You can use Internet Information Services Manager to enable a particular type of authentication. Be aware that all types of authentication are not available in the case of every operating system. Furthermore, if you are using IIS 7.0 with Windows Vista, you will need to enable the different types of Windows authentication before they appear in the Internet Information Services Manager. Open **Control Panel, Programs, Programs and Features, Turn Windows features on or off**, and expand the Internet Information Services node (see Figure 2).

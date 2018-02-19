@@ -1,4 +1,5 @@
 ---
+uid: whitepapers/mvc4-release-notes
 title: "ASP.NET MVC 4 | Microsoft Docs"
 author: rick-anderson
 description: "This document describes the release of ASP.NET MVC 4."
@@ -179,7 +180,7 @@ The bundling and minification framework enables you to reduce the number of HTTP
 <a id="_Toc303253822"></a>
 ### Enabling Logins from Facebook and Other Sites Using OAuth and OpenID
 
-The default templates in ASP.NET MVC 4 Internet Project template now includes support for OAuth and OpenID login using the DotNetOpenAuth library. For information on configuring an OAuth or OpenID provider, see [OAuth/OpenID Support for WebForms, MVC and WebPages](https://blogs.msdn.com/b/webdev/archive/2012/08/15/oauth-openid-support-for-webforms-mvc-and-webpages.aspx) and the [OAuth and OpenID feature documentation in ASP.NET Web Pages](../web-pages/overview/releases/top-features-in-web-pages-2.md).
+The default templates in ASP.NET MVC 4 Internet Project template now includes support for OAuth and OpenID login using the DotNetOpenAuth library. For information on configuring an OAuth or OpenID provider, see [OAuth/OpenID Support for WebForms, MVC and WebPages](https://blogs.msdn.com/b/webdev/archive/2012/08/15/oauth-openid-support-for-webforms-mvc-and-webpages.aspx) and the [OAuth and OpenID feature documentation in ASP.NET Web Pages](../web-pages/overview/releases/top-features-in-web-pages-2.md#oauthsetup).
 
 <a id="_Toc303253806"></a>
 ## Upgrading an ASP.NET MVC 3 Project to ASP.NET MVC 4
@@ -260,12 +261,12 @@ The major changes from ASP.NET MVC 4 Release Candidate in this release are summa
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
     - *MvcVBRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
-- **When WebMatrix.WebData.dll is included in in the /bin directory of an ASP.NET MVC 4 apps, it takes over the URL for forms authentication.** Adding the WebMatrix.WebData.dll assembly to your application (for example, by selecting "ASP.NET Web Pages with Razor Syntax" when using the Add Deployable Dependencies dialog) will override the authentication login redirect to /account/logon rather than /account/login as expected by the default ASP.NET MVC Account Controller. To prevent this behavior and use the URL specified already in the authentication section of web.config, you can add an appSetting called PreserveLoginUrl and set it to true: 
+- **When WebMatrix.WebData.dll is included in the /bin directory of an ASP.NET MVC 4 apps, it takes over the URL for forms authentication.** Adding the WebMatrix.WebData.dll assembly to your application (for example, by selecting "ASP.NET Web Pages with Razor Syntax" when using the Add Deployable Dependencies dialog) will override the authentication login redirect to /account/logon rather than /account/login as expected by the default ASP.NET MVC Account Controller. To prevent this behavior and use the URL specified already in the authentication section of web.config, you can add an appSetting called PreserveLoginUrl and set it to true: 
 
     [!code-xml[Main](mvc4-release-notes/samples/sample6.xml)]
 - **The NuGet package manager fails to install when attempting to install ASP.NET MVC 4 for side by side installations of Visual Studio 2010 and Visual Web Developer 2010.** To run Visual Studio 2010 and Visual Web Developer 2010 side by side with ASP.NET MVC 4 you must install ASP.NET MVC 4 after both versions of Visual Studio have already been installed.
 - **Uninstalling ASP.NET MVC 4 fails if prerequisites have already been uninstalled.** To cleanly uninstall ASP.NET MVC 4you must uninstall ASP.NET MVC 4 prior to uninstalling Visual Studio.
-- **Installing ASP.NET MVC 4 breaks ASP.NET MVC 3 RTM applications.** ASP.NET MVC 3 applications that were created with the RTM release (not with the [ASP.NET MVC 3 Tools Update](https://www.microsoft.com/en-us/download/details.aspx?id=1491) release) require the following changes in order to work side-by-side with ASP.NET MVC 4. Building the project without making these updates results in compilation errors. 
+- **Installing ASP.NET MVC 4 breaks ASP.NET MVC 3 RTM applications.** ASP.NET MVC 3 applications that were created with the RTM release (not with the [ASP.NET MVC 3 Tools Update](https://www.microsoft.com/download/details.aspx?id=1491) release) require the following changes in order to work side-by-side with ASP.NET MVC 4. Building the project without making these updates results in compilation errors. 
 
     **Required updates**
 

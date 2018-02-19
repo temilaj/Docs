@@ -1,24 +1,23 @@
 ---
-title: Error Handling in ASP.NET Core | Microsoft Docs
+title: Error handling in ASP.NET Core
 author: ardalis
-description: Explains how to handle errors in ASP.NET Core applications
-keywords: ASP.NET Core, error handling, exception handling, 
-ms.author: tdykstra
+description: Discover how to handle errors in ASP.NET Core applications.
 manager: wpickett
+ms.author: tdykstra
+ms.custom: H1Hack27Feb2017
 ms.date: 11/30/2016
-ms.topic: article
-ms.assetid: 4db51023-c8a6-4119-bbbe-3917e272c260
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: article
 uid: fundamentals/error-handling
 ---
-# Error Handling in ASP.NET Core
+# Introduction to Error Handling in ASP.NET Core
 
-By [Steve Smith](http://ardalis.com) and [Tom Dykstra](https://github.com/tdykstra/)
+By [Steve Smith](https://ardalis.com/) and [Tom Dykstra](https://github.com/tdykstra/)
 
-When errors occur in your ASP.NET Core app, you can handle them in a variety of ways, as described in this article.
+This article covers common appoaches to handling errors in ASP.NET Core apps.
 
-[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample)
+[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))
 
 ## The developer exception page
 
@@ -45,7 +44,7 @@ This request didn't have any cookies, but if it did, they would appear on the **
 
 ## Configuring a custom exception handling page
 
-It's a good idea to configure an exception handler page to use when the app is not running in the `Development` environment.
+It's a good idea to configure an exception handler page to use when the app isn't running in the `Development` environment.
 
 [!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
@@ -61,7 +60,7 @@ public IActionResult Index()
 
 ## Configuring status code pages
 
-By default, your app will not provide a rich status code page for HTTP status codes such as 500 (Internal Server Error) or 404 (Not Found). You can configure the `StatusCodePagesMiddleware` by adding a line to the `Configure` method:
+By default, your app won't provide a rich status code page for HTTP status codes such as 500 (Internal Server Error) or 404 (Not Found). You can configure the `StatusCodePagesMiddleware` by adding a line to the `Configure` method:
 
 ```csharp
 app.UseStatusCodePages();
@@ -105,17 +104,19 @@ Also, be aware that once the headers for a response have been sent, you can't ch
 
 ## Server exception handling
 
-In addition to the exception handling logic in your app, the [server](servers/index.md) hosting your app will perform some exception handling. If the server catches an exception before the headers have been sent it sends a 500 Internal Server Error response with no body. If it catches an exception after the headers have been sent, it closes the connection. Requests that are not handled by your app will be handled by the server, and any exception that occurs will be handled by the server's exception handling. Any custom error pages or exception handling middleware or filters you have configured for your app will not affect this behavior.
+In addition to the exception handling logic in your app, the [server](servers/index.md) hosting your app performs some exception handling. If the server catches an exception before the headers are sent, the server sends a 500 Internal Server Error response with no body. If the server catches an exception after the headers have been sent, the server closes the connection. Requests that aren't handled by your app are handled by the server. Any exception that occurs is handled by the server's exception handling. Any configured custom error pages or exception handling middleware or filters don't affect this behavior.
 
 ## Startup exception handling
 
-Only the hosting layer can handle exceptions that take place during app startup. Exceptions that occur during app startup can impact server behavior. For example, if an exception happens before you call `KestrelServerOptions.UseHttps`, the hosting layer catches the exception, starts the server, and displays an error page on the non-SSL port. If an exception happens after that line executes, the error page is served over HTTPS instead.
+Only the hosting layer can handle exceptions that take place during app startup. You can [configure how the host behaves in response to errors during startup](hosting.md#detailed-errors) using `captureStartupErrors` and the `detailedErrors` key.
 
-You can [configure how the host will behave in response to errors during startup](hosting.md#configuring-a-host) using `CaptureStartupErrors` and the `detailedErrors` key.
+Hosting can only show an error page for a captured startup error if the error occurs after host address/port binding. If any binding fails for any reason, the hosting layer logs a critical exception, the dotnet process crashes, and no error page is displayed when the app is running on the [Kestrel](xref:fundamentals/servers/kestrel) server.
+
+When running on [IIS](/iis) or [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), a *502.5 Process Failure* is returned by the [ASP.NET Core Module](xref:fundamentals/servers/aspnet-core-module) if the process can't be started. Follow the troubleshooting advice in the [Troubleshoot ASP.NET Core on IIS](xref:host-and-deploy/iis/troubleshoot) topic.
 
 ## ASP.NET MVC error handling
 
-[MVC](../mvc/index.md) apps have some additional options for handling errors, such as configuring exception filters and performing model validation.
+[MVC](xref:mvc/overview) apps have some additional options for handling errors, such as configuring exception filters and performing model validation.
 
 ### Exception Filters
 
@@ -126,7 +127,7 @@ Exception filters can be configured globally or on a per-controller or per-actio
 
 ### Handling Model State Errors
 
-[Model validation](../mvc/models/validation.md) occurs prior to each controller action being invoked, and it is the action method’s responsibility to inspect `ModelState.IsValid` and react appropriately.
+[Model validation](../mvc/models/validation.md) occurs prior to invoking each controller action, and it's the action method's responsibility to inspect `ModelState.IsValid` and react appropriately.
 
 Some apps will choose to follow a standard convention for dealing with model validation errors, in which case a [filter](../mvc/controllers/filters.md) may be an appropriate place to implement such a policy. You should test how your actions behave with invalid model states. Learn more in [Testing controller logic](../mvc/controllers/testing.md).
 

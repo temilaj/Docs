@@ -1,4 +1,5 @@
 ---
+uid: mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-vb
 title: "Iteration #7 – Add Ajax functionality (VB) | Microsoft Docs"
 author: microsoft
 description: "In the seventh iteration, we improve the responsiveness and performance of our application by adding support for Ajax."
@@ -120,7 +121,7 @@ The first parameter represents the text to display for the link, the second para
 
 The updated Index() method of the Contact controller is contained in Listing 3.
 
-**Listing 3 - Controllers\ContactController.<wbr />vb (Index method)**
+**Listing 3 - Controllers\ContactController.vb (Index method)**
 
 [!code-vb[Main](iteration-7-add-ajax-functionality-vb/samples/sample5.vb)]
 
@@ -217,7 +218,7 @@ The AjaxOptions parameter has two properties. First, the Confirm property is use
 
 Listing 7 contains a new AjaxDelete() action that has been added to the Contact controller.
 
-**Listing 7 - Controllers\ContactController.<wbr />vb (AjaxDelete)**   
+**Listing 7 - Controllers\ContactController.vb (AjaxDelete)**   
 
 [!code-vb[Main](iteration-7-add-ajax-functionality-vb/samples/sample12.vb)]
 

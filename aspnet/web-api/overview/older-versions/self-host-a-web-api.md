@@ -1,4 +1,5 @@
 ---
+uid: web-api/overview/older-versions/self-host-a-web-api
 title: "Self-Host ASP.NET Web API 1 (C#) | Microsoft Docs"
 author: MikeWasson
 description: "ASP.NET Web API does not require IIS. You can self-host a web API in your own host process. This tutorial shows how to host a web API inside a console applic..."
@@ -37,7 +38,7 @@ In the **Templates** pane, select **Installed Templates** and expand the **Visua
 
 ## Set the Target Framework (Visual Studio 2010)
 
-If you are using Visual Studio 2010, change the target framework to .NET Framework 4.0. (By default, the project template targets the [.Net Framework Client Profile](https://msdn.microsoft.com/en-us/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)
+If you are using Visual Studio 2010, change the target framework to .NET Framework 4.0. (By default, the project template targets the [.Net Framework Client Profile](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)
 
 In Solution Explorer, right-click the project and select **Properties**. In the **Target framework** dropdown list, change the target framework to .NET Framework 4.0. When prompted to apply the change, click **Yes**.
 

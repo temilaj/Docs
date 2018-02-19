@@ -1,15 +1,13 @@
 ---
-title: ASP.NET Core on Nano Server | Microsoft Docs
+title: ASP.NET Core on Nano Server
 author: shirhatti
 description: Learn how to take an existing ASP.NET Core app and deploy it to a Nano Server instance running IIS.
-keywords: ASP.NET Core, nano server
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 11/04/2016
-ms.topic: article
-ms.assetid: 50922cf1-ca58-4006-9236-99b7ff2dd0cf
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: article
 uid: tutorials/nano-server
 ---
 # ASP.NET Core with IIS on Nano Server
@@ -20,7 +18,7 @@ In this tutorial, you'll take an existing ASP.NET Core app and deploy it to a Na
 
 ## Introduction
 
-Nano Server is an installation option in Windows Server 2016, offering a tiny footprint, better security, and better servicing than Server Core or full Server. Please consult the official [Nano Server documentation](https://technet.microsoft.com/library/mt126167.aspx) for more details and download links for 180 Days evaluation versions. 
+Nano Server is an installation option in Windows Server 2016, offering a tiny footprint, better security, and better servicing than Server Core or full Server. Please consult the official [Nano Server documentation](https://docs.microsoft.com/windows-server/get-started/getting-started-with-nano-server) for more details and download links for 180 Days evaluation versions. 
 
 There are three easy ways for you to try out Nano Server. When you sign in with your MS account:
 
@@ -28,11 +26,11 @@ There are three easy ways for you to try out Nano Server. When you sign in with 
 
 2. Download the Nano Server VHD.
 
-3. Create a VM in Azure using the Nano Server image in the Azure Gallery. If you don’t have an Azure account, you can get a free 30-day trial.
+3. Create a VM in Azure using the Nano Server image in the Azure Gallery. A free trial of Azure is avaiable.
 
 In this tutorial, we will be using the 2nd option, the pre-built Nano Server VHD from Windows Server 2016.
 
-Before proceeding with this tutorial, you will need the [published output](xref:hosting/directory-structure) of an existing ASP.NET Core application. Ensure your application is built to run in a **64-bit** process.
+Before proceeding with this tutorial, you will need the [published output](xref:host-and-deploy/directory-structure) of an existing ASP.NET Core application. Ensure your application is built to run in a **64-bit** process.
 
 ## Setting up the Nano Server instance
 
@@ -101,7 +99,7 @@ To quickly verify if IIS is setup correctly, you can visit the URL `http://192.1
 
 ## Installing the ASP.NET Core Module (ANCM)
 
-The ASP.NET Core Module is an IIS 7.5+ module which is responsible for process management of ASP.NET Core HTTP listeners and to proxy requests to processes that it manages. At the moment, the process to install the ASP.NET Core Module for IIS is manual. You will need to install the [.NET Core Windows Server Hosting bundle](https://go.microsoft.com/fwlink/?linkid=837808) on a regular (not Nano) machine. After installing the bundle on a regular machine, you will need to copy the following files to the file share that we created earlier.
+The ASP.NET Core Module is an IIS 7.5+ module which is responsible for process management of ASP.NET Core HTTP listeners and to proxy requests to processes that it manages. At the moment, the process to install the ASP.NET Core Module for IIS is manual. You will need to install the [.NET Core Windows Server Hosting bundle](https://download.microsoft.com/download/B/1/D/B1D7D5BF-3920-47AA-94BD-7A6E48822F18/DotNetCore.2.0.0-WindowsHosting.exe) on a regular (not Nano) machine. After installing the bundle on a regular machine, you will need to copy the following files to the file share that we created earlier.
 
 On a regular (not Nano) server with IIS, run the following copy commands:
 
@@ -129,7 +127,8 @@ Import-Module IISAdministration
 
 # Initialize variables
 $aspNetCoreHandlerFilePath="C:\windows\system32\inetsrv\aspnetcore.dll"
-Reset-IISServerManager -confirm:$false   $sm = Get-IISServerManager
+Reset-IISServerManager -confirm:$false
+$sm = Get-IISServerManager
 
 # Add AppSettings section 
 $sm.GetApplicationHostConfiguration().RootSectionGroup.Sections.Add("appSettings")
@@ -159,12 +158,11 @@ New-IISConfigCollectionElement $modules -ConfigAttribute @{"name"="AspNetCoreMod
 
 ## Installing .NET Core Framework
 
-If you published a Framework-dependent (portable) app, .NET Core must be installed on the target machine. Execute the following PowerShell script in a remote PowerShell session to install the .NET Framework on your Nano Server.
+If your app is published as a [framework-dependent deployment (FDD)](/dotnet/core/deploying/#framework-dependent-deployments-fdd), .NET Core must be installed on the server. Use the [dotnet-install.ps1 PowerShell script](https://dot.net/v1/dotnet-install.ps1) in a remote PowerShell session to install .NET Core on your Nano Server. Pass the CLI version with the `-Version` switch:
 
-> [!NOTE]
-> To understand the differences between Framework-dependent deployments (FDD) and Self-contained deployments (SCD), see [deployment options](https://docs.microsoft.com/dotnet/articles/core/deploying/).
-
-[!code-powershell[Main](nano-server/Download-Dotnet.ps1)]
+```console
+dotnet-install.ps1 -Version 2.0.0
+```
 
 ## Publishing the application
 
@@ -186,7 +184,7 @@ Example of how a *web.config* might look if *dotnet.exe* is **not** on the PATH:
 </configuration>
 ```
 
-Run the following commands in the remote session to create a new site in IIS for the published app on a different port than the default website. You also need to open that port to access the web. This script uses the `DefaultAppPool` for simplicity. For more considerations on running under an application pool, see [Application Pools](xref:publishing/iis#application-pools).
+Run the following commands in the remote session to create a new site in IIS for the published app on a different port than the default website. You also need to open that port to access the web. This script uses the `DefaultAppPool` for simplicity. For more considerations on running under an application pool, see [Application Pools](xref:host-and-deploy/iis/index#application-pools).
 
 ```PowerShell
 Import-module IISAdministration
@@ -200,4 +198,4 @@ New-NetFirewallRule -Name "AspNetCore Port 81 IIS" -DisplayName "Allow HTTP on T
 
 ## Running the application
 
-The published web app is accessible in a browser at `http://192.168.1.10:8000`. If you've set up logging as described in [Log creation and redirection](xref:hosting/aspnet-core-module#log-creation-and-redirection), you can view your logs at *C:\PublishedApps\AspNetCoreSampleForNano\logs*.
+The published web app is accessible in a browser at `http://192.168.1.10:8000`. If you've set up logging as described in [Log creation and redirection](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection), you can view your logs at *C:\PublishedApps\AspNetCoreSampleForNano\logs*.

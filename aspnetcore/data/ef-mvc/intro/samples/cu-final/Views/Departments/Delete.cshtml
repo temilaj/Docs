@@ -1,4 +1,4 @@
-@model ContosoUniversity.Models.Department
+﻿@model ContosoUniversity.Models.Department
 
 @{
     ViewData["Title"] = "Delete";
@@ -14,22 +14,16 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Budget)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Budget)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Administrator)
+            @Html.DisplayNameFor(model => model.Budget)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Administrator.FullName)
+            @Html.DisplayFor(model => model.Budget)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.StartDate)
@@ -37,15 +31,18 @@
         <dd>
             @Html.DisplayFor(model => model.StartDate)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Administrator)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Administrator.FullName)
+        </dd>
     </dl>
-
+    
     <form asp-action="Delete">
         <input type="hidden" asp-for="DepartmentID" />
         <input type="hidden" asp-for="RowVersion" />
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            <a asp-action="Index">Back to List</a>
-        </div>
-
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
     </form>
 </div>

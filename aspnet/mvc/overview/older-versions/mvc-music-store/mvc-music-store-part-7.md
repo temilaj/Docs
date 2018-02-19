@@ -1,4 +1,5 @@
 ---
+uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
 title: "Part 7: Membership and Authorization | Microsoft Docs"
 author: jongalloway
 description: "This tutorial series details all of the steps taken to build the ASP.NET MVC Music Store sample application. Part 7 covers Membership and Authorization."
@@ -74,11 +75,11 @@ Fill in the user information fields on the left using the following information:
 | **User Name** | Administrator |
 | **Password** | password123! |
 | **Confirm Password** | password123! |
-| **E-mail** | (any e-mail address will work) |
+| **E-mail** | (any email address will work) |
 | **Security Question** | (whatever you like) |
 | **Security Answer** | (whatever you like) |
 
-*Note: You can of course use any password you'd like. The above password is shown as an example, and is assumed in the support forums on CodePlex. The default password security settings require a password that is 7 characters long and contains one non-alphanumeric character.*
+*Note: You can of course use any password you'd like. The default password security settings require a password that is 7 characters long and contains one non-alphanumeric character.*
 
 Select the Administrator role for this user, and click the Create User button.
 

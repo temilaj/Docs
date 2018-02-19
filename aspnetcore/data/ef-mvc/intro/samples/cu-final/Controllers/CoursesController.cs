@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -48,11 +48,13 @@ namespace ContosoUniversity.Controllers
             return View(course);
         }
 
+        // GET: Courses/Create
         public IActionResult Create()
         {
             PopulateDepartmentsDropDownList();
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CourseID,Credits,DepartmentID,Title")] Course course)
@@ -61,11 +63,12 @@ namespace ContosoUniversity.Controllers
             {
                 _context.Add(course);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
             PopulateDepartmentsDropDownList(course.DepartmentID);
             return View(course);
         }
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,6 +86,7 @@ namespace ContosoUniversity.Controllers
             PopulateDepartmentsDropDownList(course.DepartmentID);
             return View(course);
         }
+
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditPost(int? id)
@@ -110,7 +114,7 @@ namespace ContosoUniversity.Controllers
                         "Try again, and if the problem persists, " +
                         "see your system administrator.");
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
             PopulateDepartmentsDropDownList(courseToUpdate.DepartmentID);
             return View(courseToUpdate);
@@ -123,6 +127,7 @@ namespace ContosoUniversity.Controllers
                                    select d;
             ViewBag.DepartmentID = new SelectList(departmentsQuery.AsNoTracking(), "DepartmentID", "Name", selectedDepartment);
         }
+
 
         // GET: Courses/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -152,13 +157,14 @@ namespace ContosoUniversity.Controllers
             var course = await _context.Courses.SingleOrDefaultAsync(m => m.CourseID == id);
             _context.Courses.Remove(course);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult UpdateCourseCredits()
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> UpdateCourseCredits(int? multiplier)
         {

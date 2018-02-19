@@ -1,4 +1,5 @@
---- 
+---
+uid: index
 layout: HubPage 
 title: ASP.NET Documentation | Microsoft Docs 
 description: 
@@ -61,7 +62,7 @@ description:
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/aspnet/core/api/">
+                                <a href="https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -140,6 +141,7 @@ description:
                             <li class="fullSpan">
                                 <div class="container footer">
                                     <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Contribute to ASP.NET Core docs and samples</a></p>
+                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Find Visual Studio 2015/project.json version of the documentation</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -153,7 +155,7 @@ description:
                                 </div>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/aspnet/core/tutorials/your-first-mac-aspnet">
+                                <a href="https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app-mac/start-mvc">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -164,7 +166,7 @@ description:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Build a website on a Mac</h3>
-                                                    <p>Build your first ASP.NET core app on a Mac using Visual Studio Code.</p>
+                                                    <p>Build your first ASP.NET core app on a Mac using Visual Studio for Mac.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -274,6 +276,7 @@ description:
                             <li class="fullSpan">
                                 <div class="container footer">
                                     <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Contribute to ASP.NET Core docs and samples</a></p>
+                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Find Visual Studio 2015/project.json version of the documentation</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -305,8 +308,8 @@ description:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Get started with ASP.NET</h3>
-                                                    <p>Download Visual Studio, the free IDE for ASP.NET on Windows.</p>
+                                                    <h3>Download Visual Studio</h3>
+                                                    <p>Visual Studio is a free IDE for ASP.NET on Windows.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -442,7 +445,7 @@ description:
                         <ul id="aspnet_framework" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p><a href="/aspnet/overview#websites-and-web-applications">Learn about the different options for building websites with ASP.NET</a> and choose the one that’s right for you.</p>
+                                    <p><a href="/aspnet/overview#websites-and-web-applications">Learn about the different options for building websites with ASP.NET</a> and choose the one that's right for you.</p>
                                 </div>
                             </li>
                             <li>
@@ -575,7 +578,7 @@ description:
                         <ul id="aspnet_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
-                                    <p>Featured tutorials</p>
+                                    <p>Featured tutorials | [View all ASP.NET tutorials](https://docs.microsoft.com/aspnet/tutorials/)</p>
                                 </div>
                             </li>
                             <li>
@@ -673,6 +676,26 @@ description:
                                                     <h3>Getting Started with Entity Framework 6 Code First using MVC 5</h3>
                                                     <p>The basics of using Entity Framework 6 to display and edit data in an
                                                         ASP.NET MVC 5 application.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/aspnet/mvc/overview/deployment/docker-aspnetmvc">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="/media/hubs/aspnet/aspnet-tutorials-5.svg" alt=""
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Migrating ASP.NET MVC Applications to Windows Containers</h3>
+                                                    <p>Learn how to take an existing ASP.NET MVC application and run it in a Windows Docker Container .</p>
                                                 </div>
                                             </div>
                                         </div>

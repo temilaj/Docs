@@ -1,18 +1,21 @@
 ---
-title: Testing in ASP.NET Core | Microsoft Docs
+title: Test and debug in ASP.NET Core
 author: ardalis
-description: Testing features of ASP.NET Core.
-keywords: ASP.NET Core, unit testing, integration testing, controllers
-ms.author: riande
+description: Links to resources for testing and debugging ASP.NET Core applications.
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.assetid: 2159536c-ebf7-4ebd-ba85-9cc6a335a295
+ms.author: riande
+ms.date: 11/20/2017
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: article
+uid: testing/index
 ---
-# Testing in ASP.NET Core
+# Test and debug in ASP.NET Core
 
-- [Unit testing](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-- [Integration testing](xref:testing/integration-testing)
-- [Testing controllers](xref:mvc/controllers/testing)
+* [Unit testing](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
+* [Integration testing](xref:testing/integration-testing)
+* [Razor Pages unit and integration testing](xref:testing/razor-pages-testing)
+* [Test controllers](xref:mvc/controllers/testing)
+* [Debug ASP.NET Core 2.x source](https://github.com/aspnet/Docs/issues/4155)
+* [Remote debugging](/visualstudio/debugger/remote-debugging-azure)
+* [Snapshot debugging](/azure/application-insights/app-insights-snapshot-debugger)

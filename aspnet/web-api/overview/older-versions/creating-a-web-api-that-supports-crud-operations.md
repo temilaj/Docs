@@ -1,4 +1,5 @@
 ---
+uid: web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 title: "Enabling CRUD Operations in ASP.NET Web API 1 | Microsoft Docs"
 author: MikeWasson
 description: "This tutorial shows how to support CRUD operations in an HTTP service using ASP.NET Web API. Software versions used in the tutorial Visual Studio 2012 Web AP..."
@@ -121,7 +122,7 @@ If you have worked with ASP.NET MVC, then you are already familiar with controll
 
 Go ahead and delete ValuesController, by right-clicking the file in Solution Explorer and selecting **Delete.** Now add a new controller, as follows:
 
-In **Solution Explorer**, right-click the the Controllers folder. Select **Add** and then select **Controller**.
+In **Solution Explorer**, right-click the Controllers folder. Select **Add** and then select **Controller**.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image6.png)
 

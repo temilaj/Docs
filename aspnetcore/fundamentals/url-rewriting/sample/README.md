@@ -1,12 +1,12 @@
-# ASP.NET Core URL Rewriting Sample
+# ASP.NET Core URL Rewriting Sample (ASP.NET Core 2.x)
 
-This sample illustrates usage of ASP.NET Core URL Rewriting Middleware. The application demonstrates URL redirect and URL rewriting options.
+This sample illustrates usage of ASP.NET Core 2.x URL Rewriting Middleware. The application demonstrates URL redirect and URL rewriting options. For the ASP.NET Core 1.x sample, see [ASP.NET Core URL Rewriting Sample (ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/1.x).
 
 When running the sample, a response will be served that shows the rewritten or redirected URL when one of the rules is applied to a request URL.
 
 ## Examples in this sample
 
-* `AddRedirect("redirect-rule/(.*)", "$1")`
+* `AddRedirect("redirect-rule/(.*)", "redirected/$1")`
   - Success status code: 302 (Found)
   - Example (redirect): **/redirect-rule/{capture_group}** to **/redirected/{capture_group}**
 * `AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", skipRemainingRules: true)`

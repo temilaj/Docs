@@ -1,4 +1,4 @@
-@model ContosoUniversity.Models.Instructor
+﻿@model ContosoUniversity.Models.Instructor
 
 @{
     ViewData["Title"] = "Delete";
@@ -12,6 +12,12 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.FirstMidName)
         </dt>
         <dd>
@@ -23,18 +29,11 @@
         <dd>
             @Html.DisplayFor(model => model.HireDate)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
     </dl>
     
     <form asp-action="Delete">
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            <a asp-action="Index">Back to List</a>
-        </div>
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
     </form>
 </div>

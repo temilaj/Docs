@@ -1,5 +1,6 @@
 ---
-title: "ASP.NET 4 "Quick Hit" – Easy State Compression | Microsoft Docs"
+uid: web-forms/videos/net-4/performance/aspnet-4-quick-hit-easy-state-compression
+title: Easy State Compression | Microsoft Docs
 author: JoeStagner
 description: "In this video you will learn how to use the compressionEnabled configuration option to compress (and decompress) serialized session state."
 ms.author: aspnetcontent

@@ -1,4 +1,5 @@
 ---
+uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 title: "Calling an OData Service From a .NET Client (C#) | Microsoft Docs"
 author: MikeWasson
 description: "This tutorial shows how to call an OData service from a C# client application. Software versions used in the tutorial Visual Studio 2013 (works with Visual S..."
@@ -24,7 +25,7 @@ by [Mike Wasson](https://github.com/MikeWasson)
 > 
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) (works with Visual Studio 2012)
-> - [WCF Data Services Client Library](https://msdn.microsoft.com/en-us/library/cc668772.aspx)
+> - [WCF Data Services Client Library](https://msdn.microsoft.com/library/cc668772.aspx)
 > - Web API 2. (The example OData service is built using Web API 2, but the client application does not depend on Web API.)
 
 
@@ -112,7 +113,7 @@ For the rest of this topic, I won't show the entire `Main` function, just the co
 
 OData defines [query options](../supporting-odata-query-options.md) that can be used to filter, sort, page data, and so forth. In the service proxy, you can apply these options by using various LINQ expressions.
 
-In this section, I'll show brief examples. For more details, see the topic [LINQ Considerations (WCF Data Services)](https://msdn.microsoft.com/en-us/library/ee622463.aspx) on MSDN.
+In this section, I'll show brief examples. For more details, see the topic [LINQ Considerations (WCF Data Services)](https://msdn.microsoft.com/library/ee622463.aspx) on MSDN.
 
 ### Filtering ($filter)
 
@@ -148,7 +149,7 @@ Here is the corresponding OData request:
 
 ### Select ($select) and Expand ($expand)
 
-To include related entities, use the **DataServiceQuery<t>.Expand</t>** method. For example, to include the `Supplier` for each `Product`:
+To include related entities, use the `DataServiceQuery<t>.Expand` method. For example, to include the `Supplier` for each `Product`:
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample13.cs)]
 
@@ -220,7 +221,7 @@ For example, the `RateProduct` action takes parameter named "Rating" of type `In
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample24.cs)]
 
-For more information, see[Calling Service Operations and Actions](https://msdn.microsoft.com/en-us/library/hh230677.aspx).
+For more information, see[Calling Service Operations and Actions](https://msdn.microsoft.com/library/hh230677.aspx).
 
 One option is to extend the **Container** class to provide a strongly typed method that invokes the action:
 

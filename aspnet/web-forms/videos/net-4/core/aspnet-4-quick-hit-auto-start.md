@@ -1,5 +1,6 @@
 ---
-title: "ASP.NET 4 "Quick Hit" - Auto Start | Microsoft Docs"
+uid: web-forms/videos/net-4/core/aspnet-4-quick-hit-auto-start
+title:  Auto Start | Microsoft Docs
 author: JoeStagner
 description: "In this video you will learn about the new auto-start scalability feature which provides a controlled approach for starting up an application pool, initializ..."
 ms.author: aspnetcontent

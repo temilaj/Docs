@@ -1,5 +1,6 @@
 ---
-title: "Visual Studio 2010 "Quick Hit" - IntelliSense Smart Lists | Microsoft Docs"
+uid: web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-intellisense-smart-lists
+title: Visual Studio 2010 Quick Hit - IntelliSense Smart Lists
 author: JoeStagner
 description: "In this video you will learn about list filtering in Visual Studio's IntelliSense."
 ms.author: aspnetcontent

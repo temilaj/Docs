@@ -1,4 +1,5 @@
 ---
+uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 title: "What's New in ASP.NET and Web Development in Visual Studio 2012 | Microsoft Docs"
 author: rick-anderson
 description: "The new version of Visual Studio introduces a number of enhancements focused on improving the experience and performance when working with Web technologies...."
@@ -48,7 +49,7 @@ In this hands on lab, you will learn how to:
 
 - [Microsoft Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) or superior (read [Appendix A](#AppendixA) for instructions on how to install it).
 - [Windows PowerShell](https://support.microsoft.com/kb/968930/) (for setup scripts - already installed on Windows 8 and Windows Server 2008 R2)
-- [Internet Explorer 10](https://windows.microsoft.com/en-US/internet-explorer/products/ie/home) - or an HTML5 compliant browser
+- [Internet Explorer 10](https://windows.microsoft.com/internet-explorer/products/ie/home) - or an HTML5 compliant browser
 
 <a id="Exercises"></a>
 

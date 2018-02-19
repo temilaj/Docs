@@ -1,4 +1,5 @@
 ---
+uid: web-pages/readme/beta3
 title: "Web Matrix and ASP.NET Web Pages (Razor) Beta 3 Release Readme | Microsoft Docs"
 author: rick-anderson
 description: "Web Matrix and ASP.NET Web Pages (Razor) Beta 3 Release Readme"
@@ -15,7 +16,6 @@ msc.type: content
 Web Matrix and ASP.NET Web Pages (Razor) Beta 3 Release Readme
 ====================
 > Web Matrix and ASP.NET Web Pages (Razor) Beta 3 Release Readme
-
 
 9 November 2010
 
@@ -118,7 +118,7 @@ This section of the document describes new features, changes, and known issues w
 - [Changes](#Changes)
 - [Issues](#Issues)
 
-<a id="NewFeautres"></a>
+<a id="NewFeatures"></a>
 
 #### New Features in Beta 3 for ASP.NET Web Pages with Razor Syntax
 
@@ -260,7 +260,7 @@ This section of the document describes new features, changes, and known issues w
 > 
 > [!code-xml[Main](beta3/samples/sample5.xml)]
 > 
-> For more information about configuring a proxy server, see [&lt;proxy&gt; Element (Network Settings)](https://msdn.microsoft.com/en-us/library/sa91de1e.aspx) on the MSDN Web site.
+> For more information about configuring a proxy server, see [&lt;proxy&gt; Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) on the MSDN Web site.
 
 
 #### Issue: "Microsoft.Web.Infrastructure.dll cannot be loaded" error
@@ -352,7 +352,7 @@ This section of the document describes new features, changes, and known issues w
 > **Workaround**  
 > Temporarily set the application to use Full Trust.
 
-
+<a id="Known_Issues_SQL_Server_Compact"></a>
 ### SQL Server Compact
 
 #### Issue: "Encrypt" property is not recognized
@@ -548,4 +548,4 @@ For more information about WebMatrix Beta 3, see the following websites:
 
 * * *
 
-© 2010 Microsoft Corporation. All Rights Reserved. [Terms of Use](https://msdn.microsoft.com/en-us/cc300389.aspx).
+© 2010 Microsoft Corporation. All Rights Reserved. [Terms of Use](https://msdn.microsoft.cos/cc300389.aspx).

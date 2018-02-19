@@ -1,15 +1,13 @@
 ---
-title: Custom formatters in ASP.NET Core MVC web APIs | Microsoft Docs
+title: Custom formatters in ASP.NET Core MVC web APIs
 author: tdykstra
-description: Learn how to create and use custom formatters for web APIs in ASP.NET Core. 
-keywords: ASP.NET Core, web api, custom formatters
-ms.author: tdykstra
+description: Learn how to create and use custom formatters for web APIs in ASP.NET Core.
 manager: wpickett
+ms.author: tdykstra
 ms.date: 02/08/2017
-ms.topic: article
-ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: article
 uid: mvc/models/custom-formatters
 ---
 # Custom formatters in ASP.NET Core MVC web APIs
@@ -24,7 +22,7 @@ ASP.NET Core MVC has built-in support for data exchange in web APIs by using JSO
 
 Use a custom formatter when you want the [content negotiation](xref:mvc/models/formatting) process to support a content type that isn't supported by the built-in formatters (JSON, XML, and plain text).
 
-For example, if some of the clients for your web API can handle the [Protobuf](https://github.com/google/protobuf) format, you might want to use Protobuf with those clients because it's more efficient.  Or you might want your web API to send contact names and addresses in [vCard](https://en.wikipedia.org/wiki/VCard) format, a commonly used format for exchanging contact data. The sample app provided with this article implements a simple vCard formatter.
+For example, if some of the clients for your web API can handle the [Protobuf](https://github.com/google/protobuf) format, you might want to use Protobuf with those clients because it's more efficient.  Or you might want your web API to send contact names and addresses in [vCard](https://wikipedia.org/wiki/VCard) format, a commonly used format for exchanging contact data. The sample app provided with this article implements a simple vCard formatter.
 
 ## Overview of how to use a custom formatter
 
@@ -90,6 +88,8 @@ You do the actual work of deserializing or serializing in `ReadRequestBodyAsync`
 To use a custom formatter, add an instance of the formatter class to the `InputFormatters` or `OutputFormatters` collection.
 
 [!code-csharp[Main](custom-formatters/sample/Startup.cs?name=mvcoptions&highlight=3-4)]
+
+Formatters are evaluated in the order you insert them. The first one takes precedence. 
 
 ## Next steps
 

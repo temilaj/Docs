@@ -1,20 +1,18 @@
 ---
-title: Using Grunt in ASP.NET Core | Microsoft Docs
+title: Using Grunt in ASP.NET Core
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.assetid: 471112e9-2c33-454b-96fc-32916102ce73
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: article
 uid: client-side/using-grunt
 ---
 # Using Grunt in ASP.NET Core 
 
-By [Noel Rice](http://blog.falafel.com/author/noel-rice/)
+By [Noel Rice](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
 Grunt is a JavaScript task runner that automates script minification, TypeScript compilation, code quality "lint" tools, CSS pre-processors, and just about any repetitive chore that needs doing to support client development. Grunt is fully supported in Visual Studio, though the ASP.NET project templates use Gulp by default (see [Using Gulp](using-gulp.md)).
 
@@ -48,19 +46,19 @@ To begin, set up a new empty web application and add TypeScript example files. T
 
 4.  Add a new folder named `TypeScript` to your project directory.
 
-5.  Before adding any files, let’s make sure that Visual Studio has the option 'compile on save' for TypeScript files checked. *Tools > Options > Text Editor > Typescript > Project*
+5.  Before adding any files, make sure that Visual Studio has the option 'compile on save' for TypeScript files checked. Navigate to **Tools** > **Options** > **Text Editor** > **Typescript** > **Project**:
 
     ![options setting auto compliation of TypeScript files](using-grunt/_static/typescript-options.png)
 
 6.  Right-click the `TypeScript` directory and select **Add > New Item** from the context menu. Select the **JavaScript file** item and name the file *Tastes.ts* (note the \*.ts extension). Copy the line of TypeScript code below into the file (when you save, a new *Tastes.js* file will appear with the JavaScript source).
     
-    ```javascript
+    ```typescript
     enum Tastes { Sweet, Sour, Salty, Bitter }
     ```
 
 7.  Add a second file to the **TypeScript** directory and name it `Food.ts`. Copy the code below into the file.
 
-    ```javascript
+    ```typescript
     class Food {
       constructor(name: string, calories: number) {
         this._name = name;
@@ -91,14 +89,14 @@ Next, configure NPM to download grunt and grunt-tasks.
 
 1. In the Solution Explorer, right-click the project and select **Add > New Item** from the context menu. Select the **NPM configuration file** item, leave the default name, *package.json*, and click the **Add** button.
 
-2. In the *package.json* file, inside the `devDependencies` object braces, enter "grunt". Select `grunt` from the Intellisense list and press the Enter key. Visual Studio will quote the grunt package name, and add a colon. To the right of the colon, select the latest stable version of the package from the top of the Intellisense list (press `Ctrl-Space` if Intellisense does not appear).
+2. In the *package.json* file, inside the `devDependencies` object braces, enter "grunt". Select `grunt` from the Intellisense list and press the Enter key. Visual Studio will quote the grunt package name, and add a colon. To the right of the colon, select the latest stable version of the package from the top of the Intellisense list (press `Ctrl-Space` if Intellisense doesn't appear).
 
     ![grun Intellisense](using-grunt/_static/devdependencies-grunt.png)
     
     > [!NOTE]
     > NPM uses [semantic versioning](http://semver.org/) to organize dependencies. Semantic versioning, also known as SemVer, identifies packages with the numbering scheme <major>.<minor>.<patch>. Intellisense simplifies semantic versioning by showing only a few common choices. The top item in the Intellisense list (0.4.5 in the example above) is considered the latest stable version of the package. The caret (^) symbol matches the most recent major version and the tilde (~) matches the most recent minor version. See the [NPM semver version parser reference](https://www.npmjs.com/package/semver) as a guide to the full expressivity that SemVer provides.
 
-3. Add more dependencies to load grunt-contrib-\* packages for *clean*, *jshint*, *concat*, *uglify*, and *watch* as shown in the example below. The versions do not need to match the example.
+3. Add more dependencies to load grunt-contrib-\* packages for *clean*, *jshint*, *concat*, *uglify*, and *watch* as shown in the example below. The versions don't need to match the example.
 
     ```json
     "devDependencies": {
@@ -174,7 +172,7 @@ Grunt is configured using a manifest named *Gruntfile.js* that defines, loads an
     
 8. In the initConfig() method, add an entry for `concat` using the code below.
 
-    The `src` property array lists files to combine, in the order that they should be combined. The `dest` property assigns the path to the combined file that is produced.
+    The `src` property array lists files to combine, in the order that they should be combined. The `dest` property assigns the path to the combined file that's produced.
 
     ```javascript
     concat: {
@@ -233,7 +231,7 @@ Grunt is configured using a manifest named *Gruntfile.js* that defines, loads an
     
     ![task runner explorer run each task](using-grunt/_static/task-runner-explorer-run-each-task.png)
     
-    The concat task creates a new *combined.js* file and places it into the temp directory. The jshint task simply runs and doesn’t produce output. The uglify task creates a new *combined.min.js* file and places it into wwwroot/lib. On completion, the solution should look something like the screenshot below:
+    The concat task creates a new *combined.js* file and places it into the temp directory. The jshint task simply runs and doesn't produce output. The uglify task creates a new *combined.min.js* file and places it into wwwroot/lib. On completion, the solution should look something like the screenshot below:
     
     ![solution explorer after all tasks](using-grunt/_static/solution-explorer-after-all-tasks.png)
     

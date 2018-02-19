@@ -1,4 +1,5 @@
 ---
+uid: web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 title: "Model Validation in ASP.NET Web API | Microsoft Docs"
 author: MikeWasson
 description: ""
@@ -20,7 +21,7 @@ When a client sends data to your web API, often you want to validate the data be
 
 ## Data Annotations
 
-In ASP.NET Web API, you can use attributes from the [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) namespace to set validation rules for properties on your model. Consider the following model:
+In ASP.NET Web API, you can use attributes from the [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) namespace to set validation rules for properties on your model. Consider the following model:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample1.cs)]
 

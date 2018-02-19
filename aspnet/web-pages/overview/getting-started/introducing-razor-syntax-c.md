@@ -1,4 +1,5 @@
 ---
+uid: web-pages/overview/getting-started/introducing-razor-syntax-c
 title: "Introduction to ASP.NET Web Programming Using the Razor Syntax (C#) | Microsoft Docs"
 author: tfitzmac
 description: "This chapter gives you an overview of programming with ASP.NET Web Pages using the Razor syntax. ASP.NET is Microsoft's technology for running dynamic web pa..."
@@ -98,7 +99,7 @@ A *string* is a sequence of characters that are treated as text. To specify a st
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample5.cshtml)]
 
-If the string that you want to display contains a backslash character (\) or double quotation marks ( `"` ), use a *verbatim string literal* that's prefixed with the `@` operator. (In C#, the \ character has special meaning unless you use a verbatim string literal.)
+If the string that you want to display contains a backslash character ( `\` ) or double quotation marks ( `"` ), use a *verbatim string literal* that's prefixed with the `@` operator. (In C#, the \ character has special meaning unless you use a verbatim string literal.)
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample6.html)]
 
@@ -527,7 +528,7 @@ To create a dictionary, you use the `new` keyword to indicate that you're creati
 
 To add items to the dictionary, you can call the `Add` method of the dictionary variable (`myScores` in this case), and then specify a key and a value. Alternatively, you can use square brackets to indicate the key and do a simple assignment, as in the following example:
 
-[!code-css[Main](introducing-razor-syntax-c/samples/sample62.css)]
+[!code-csharp[Main](introducing-razor-syntax-c/samples/sample62.cs)]
 
 To get a value from the dictionary, you specify the key in brackets:
 
@@ -594,6 +595,6 @@ If your code didn't handle the exception, you would see an error page like the p
 **Reference Documentation**
 
 
-[ASP.NET](https://msdn.microsoft.com/en-us/library/ee532866.aspx)
+[ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
 
-[C# Language](https://msdn.microsoft.com/en-us/library/kx37x362.aspx)
+[C# Language](https://msdn.microsoft.com/library/kx37x362.aspx)

@@ -1,4 +1,5 @@
 ---
+uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
 title: "Getting Started with Entity Framework 4.0 Database First and ASP.NET 4 Web Forms - Part 8 | Microsoft Docs"
 author: tdykstra
 description: "The Contoso University sample web application demonstrates how to create ASP.NET Web Forms applications using the Entity Framework. The sample application is..."
@@ -119,11 +120,11 @@ This concludes this series of tutorials on Getting Started with the Entity Frame
 
 - [Entity Framework FAQ](http://www.ef-faq.org/introduction.html)
 - [The Entity Framework Team Blog](https://blogs.msdn.com/b/adonet/)
-- [Entity Framework in the MSDN Library](https://msdn.microsoft.com/en-us/library/bb399572.aspx)
-- [Entity Framework in the MSDN Data Developer Center](https://msdn.microsoft.com/en-us/data/ef.aspx)
-- [EntityDataSource Web Server Control Overview in the MSDN Library](https://msdn.microsoft.com/en-us/library/cc488502.aspx)
-- [EntityDataSource control API reference in the MSDN Library](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.entitydatasource.aspx)
-- [Entity Framework Forums on MSDN](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/)
+- [Entity Framework in the MSDN Library](https://msdn.microsoft.com/library/bb399572.aspx)
+- [Entity Framework in the MSDN Data Developer Center](https://msdn.microsoft.com/data/ef.aspx)
+- [EntityDataSource Web Server Control Overview in the MSDN Library](https://msdn.microsoft.com/library/cc488502.aspx)
+- [EntityDataSource control API reference in the MSDN Library](https://msdn.microsoft.com/library/system.web.ui.webcontrols.entitydatasource.aspx)
+- [Entity Framework Forums on MSDN](https://social.msdn.microsoft.com/forums/adodotnetentityframework/)
 - [Julie Lerman's blog](http://thedatafarm.com/blog/)
 
 >[!div class="step-by-step"]

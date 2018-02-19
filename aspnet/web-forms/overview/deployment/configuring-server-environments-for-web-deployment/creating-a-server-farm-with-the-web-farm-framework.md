@@ -1,4 +1,5 @@
 ---
+uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 title: "Creating a Server Farm with the Web Farm Framework | Microsoft Docs"
 author: jrjlee
 description: "This topic describes how to use the Web Farm Framework (WFF) 2.0 to create and configure a web server farm from a collection of servers."
@@ -59,7 +60,7 @@ The tasks and walkthroughs in this topic assume that you're starting with clean 
 - The server has a static IP address.
 
 > [!NOTE]
-> For more information on joining computers to a domain, see [Joining Computers to the Domain and Logging On](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). For more information on configuring static IP addresses, see [Configure a Static IP Address](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx).
+> For more information on joining computers to a domain, see [Joining Computers to the Domain and Logging On](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). For more information on configuring static IP addresses, see [Configure a Static IP Address](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
 
 ## Create the WFF Controller Server

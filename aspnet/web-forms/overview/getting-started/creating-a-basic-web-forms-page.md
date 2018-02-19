@@ -1,4 +1,5 @@
 ---
+uid: web-forms/overview/getting-started/creating-a-basic-web-forms-page
 title: "Creating a Basic ASP.NET 4.5 Web Forms Page in Visual Studio 2013 | Microsoft Docs"
 author: Erikre
 description: ""
@@ -16,7 +17,7 @@ Creating a Basic ASP.NET 4.5 Web Forms Page in Visual Studio 2013
 ====================
 by [Erik Reitan](https://github.com/Erikre)
 
-This walkthrough provides you with an introduction to the Web development environment in [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) and in [Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). This walkthrough guides you through creating a simple ASP.NET Web Forms page and illustrates the basic techniques of creating a new page, adding controls, and writing code.
+This walkthrough provides you with an introduction to the Web development environment in [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) and in [Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). This walkthrough guides you through creating a simple ASP.NET Web Forms page and illustrates the basic techniques of creating a new page, adding controls, and writing code.
 
 Tasks illustrated in this walkthrough include:
 
@@ -32,7 +33,7 @@ Tasks illustrated in this walkthrough include:
 
 In order to complete this walkthrough, you will need:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) or [Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). The .NET Framework is installed automatically. 
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) or [Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). The .NET Framework is installed automatically. 
 
     > [!NOTE] 
     > 
@@ -306,14 +307,12 @@ In this section, you will program the [Calendar](https://msdn.microsoft.com/libr
 
 1. In **Design** view, double-click the [Calendar](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) control.
 
-    A new event handler is created and displayed in teh code-behind file named *FirstWebPage.aspx.cs*.
+    A new event handler is created and displayed in the code-behind file named *FirstWebPage.aspx.cs*.
 2. Finish the [SelectionChanged](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selectionchanged.aspx) event handler with the following code.
 
-**C#**
 
     [!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
 
-**VB**
 
     [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
 

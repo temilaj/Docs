@@ -1,24 +1,31 @@
 ---
-title: Open Web Interface for .NET (OWIN) | Microsoft Docs
+title: Open Web Interface for .NET (OWIN)
 author: ardalis
-description: 
-keywords: ASP.NET Core,
-ms.author: riande
+description: Discover how ASP.NET Core supports the Open Web Interface for .NET (OWIN), which allows web apps to be decoupled from web servers.
 manager: wpickett
+ms.author: riande
+ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
-ms.topic: article
-ms.assetid: 70c4e6bc-a773-4039-96ec-6fe557c9369d
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: article
 uid: fundamentals/owin
 ---
-# Open Web Interface for .NET (OWIN)
+# Introduction to Open Web Interface for .NET (OWIN)
 
-By [Steve Smith](http://ardalis.com) and  [Rick Anderson](https://twitter.com/RickAndMSFT)
+By [Steve Smith](https://ardalis.com/) and  [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ASP.NET Core supports the Open Web Interface for .NET (OWIN). OWIN allows web apps to be decoupled from web servers. It defines a standard way for middleware to be used in a pipeline to handle requests and associated responses. ASP.NET Core applications and middleware can interoperate with OWIN-based applications, servers, and middleware.
 
-[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample)
+OWIN provides a decoupling layer that allows two frameworks with disparate object models to be used together. The `Microsoft.AspNetCore.Owin` package provides two adapter implementations:
+- ASP.NET Core to OWIN 
+- OWIN to ASP.NET Core
+
+This allows ASP.NET Core to be hosted on top of an OWIN compatible server/host, or for other OWIN compatible components to be run on top of ASP.NET Core.
+
+Note: Using these adapters comes with a performance cost. Applications using only ASP.NET Core components shouldn't use the Owin package or adapters.
+
+[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))
 
 ## Running OWIN middleware in the ASP.NET pipeline
 
@@ -41,15 +48,11 @@ public Task OwinHello(IDictionary<string, object> environment)
 
     return responseStream.WriteAsync(responseBytes, 0, responseBytes.Length);
 }
-
-
 ```
 
 The sample signature returns a `Task` and accepts an `IDictionary<string, object>` as required by OWIN.
 
 The following code shows how to add the `OwinHello` middleware (shown above) to the ASP.NET pipeline with the `UseOwin` extension method.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {"linenostart": 1}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#", "source": "/Users/shirhatti/src/Docs/aspnet/fundamentals/owin/sample/src/OwinSample/Startup.cs"} -->
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -59,8 +62,6 @@ public void Configure(IApplicationBuilder app)
         pipeline(next => OwinHello);
     });
 }
-
-
 ```
 
 You can configure other actions to take place within the OWIN pipeline.
@@ -70,8 +71,6 @@ You can configure other actions to take place within the OWIN pipeline.
 
 > [!NOTE]
 > Multiple calls to `UseOwin` is discouraged for performance reasons. OWIN components will operate best if grouped together.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 app.UseOwin(pipeline =>
@@ -85,7 +84,7 @@ app.UseOwin(pipeline =>
 });
 ```
 
-<a name=hosting-on-owin></a>
+<a name="hosting-on-owin"></a>
 
 ## Using ASP.NET Hosting on an OWIN-based server
 
@@ -98,8 +97,6 @@ OWIN-based servers can host ASP.NET applications. One such server is [Nowin](htt
 `Start` is responsible for configuring and starting the server, which in this case is done through a series of fluent API calls that set addresses parsed from the IServerAddressesFeature. Note that the fluent configuration of the `_builder` variable specifies that requests will be handled by the `appFunc` defined earlier in the method. This `Func` is called on each request to process incoming requests.
 
 We'll also add an `IWebHostBuilder` extension to make it easy to add and configure the Nowin server.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {"hl_lines": [11], "linenostart": 1}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#", "source": "/Users/shirhatti/src/Docs/aspnet/fundamentals/owin/sample/src/NowinSample/NowinWebHostBuilderExtensions.cs"} -->
 
 ```csharp
 using System;
@@ -133,8 +130,6 @@ namespace Microsoft.AspNetCore.Hosting
 ```
 
 With this in place, all that's required to run an ASP.NET application using this custom server to call the extension in *Program.cs*:
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {"hl_lines": [15], "linenostart": 1}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#", "source": "/Users/shirhatti/src/Docs/aspnet/fundamentals/owin/sample/src/NowinSample/Program.cs"} -->
 
 ```csharp
 
@@ -170,8 +165,6 @@ Learn more about ASP.NET [Servers](servers/index.md).
 ## Run ASP.NET Core on an OWIN-based server and use its WebSockets support
 
 Another example of how OWIN-based servers' features can be leveraged by ASP.NET Core is access to features like WebSockets. The .NET OWIN web server used in the previous example has support for Web Sockets built in, which can be leveraged by an ASP.NET Core application. The example below shows a simple web app that supports Web Sockets and echoes back everything sent to the server through WebSockets.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {"hl_lines": [7, 9, 10], "linenostart": 1}, "backrefs": [], "dupnames": [], "linenos": true, "classes": [], "xml:space": "preserve", "language": "c#", "source": "/Users/shirhatti/src/Docs/aspnet/fundamentals/owin/sample/src/NowinWebSockets/Startup.cs"} -->
 
 ```csharp
 public class Startup
@@ -227,8 +220,6 @@ This [sample](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals
 
 You can construct a OWIN environment using the `HttpContext`.
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 
    var environment = new OwinEnvironment(HttpContext);
@@ -239,7 +230,7 @@ You can construct a OWIN environment using the `HttpContext`.
 
 OWIN depends on an `IDictionary<string,object>` object to communicate information throughout an HTTP Request/Response exchange. ASP.NET Core implements the keys listed below. See the [primary specification, extensions](http://owin.org/#spec), and [OWIN Key Guidelines and Common Keys](http://owin.org/spec/spec/CommonKeys.html).
 
-### Request Data (OWIN v1.0.0)
+### Request data (OWIN v1.0.0)
 
 | Key               | Value (type) | Description |
 | ----------------- | ------------ | ----------- |
@@ -252,13 +243,13 @@ OWIN depends on an `IDictionary<string,object>` object to communicate informatio
 | owin.RequestHeaders | `IDictionary<string,string[]>`  | |
 | owin.RequestBody | `Stream`  | |
 
-### Request Data (OWIN v1.1.0)
+### Request data (OWIN v1.1.0)
 
 | Key               | Value (type) | Description |
 | ----------------- | ------------ | ----------- |
 | owin.RequestId | `String` | Optional |
 
-### Response Data (OWIN v1.0.0)
+### Response data (OWIN v1.0.0)
 
 | Key               | Value (type) | Description |
 | ----------------- | ------------ | ----------- |
@@ -268,7 +259,7 @@ OWIN depends on an `IDictionary<string,object>` object to communicate informatio
 | owin.ResponseBody | `Stream`  | |
 
 
-### Other Data (OWIN v1.0.0)
+### Other data (OWIN v1.0.0)
 
 | Key               | Value (type) | Description |
 | ----------------- | ------------ | ----------- |
@@ -276,7 +267,7 @@ OWIN depends on an `IDictionary<string,object>` object to communicate informatio
 | owin.Version  | `String` | |   
 
 
-### Common Keys
+### Common keys
 
 | Key               | Value (type) | Description |
 | ----------------- | ------------ | ----------- |
@@ -322,9 +313,7 @@ OWIN depends on an `IDictionary<string,object>` object to communicate informatio
 | websocket.ClientCloseStatus | `int` | Optional |
 | websocket.ClientCloseDescription | `String` | Optional |
 
+## Additional resources
 
-## Additional Resources
-
-* [Middleware](middleware.md)
-
-* [Servers](servers/index.md)
+* [Middleware](xref:fundamentals/middleware/index)
+* [Servers](xref:fundamentals/servers/index)

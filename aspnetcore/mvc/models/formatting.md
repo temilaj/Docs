@@ -1,20 +1,19 @@
 ---
-title: Formatting Response Data | Microsoft Docs
+title: Formatting response data in ASP.NET Core MVC
 author: ardalis
-description: 
-keywords: ASP.NET Core,
-ms.author: riande
+description: Learn how to format response data in ASP.NET Core MVC.
 manager: wpickett
+ms.author: riande
+ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
-ms.topic: article
-ms.assetid: c056df45-d013-4826-91a1-4a092bae1ea5
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: article
 uid: mvc/models/formatting
 ---
-# Formatting Response Data
+# Introduction to formatting response data in ASP.NET Core MVC
 
-By [Steve Smith](http://ardalis.com)
+By [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core MVC has built-in support for formatting response data, using fixed formats or in response to client specifications.
 
@@ -31,7 +30,7 @@ To return data in a specific format from a controller that inherits from the `Co
 
 Returning JSON-formatted data:
 
-[!code-csharp[Main](./formatting/sample/src/ResponseFormattingSample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=21-26)]
+[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=21-26)]
 
 Sample response from this action:
 
@@ -41,7 +40,7 @@ Note that the content type of the response is `application/json`, shown both in 
 
 To return plain text formatted data, use `ContentResult` and the `Content` helper:
 
-[!code-csharp[Main](./formatting/sample/src/ResponseFormattingSample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=47-52)]
+[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=47-52)]
 
 A response from this action:
 
@@ -49,18 +48,18 @@ A response from this action:
 
 Note in this case the `Content-Type` returned is `text/plain`. You can also achieve this same behavior using just a string response type:
 
-[!code-csharp[Main](./formatting/sample/src/ResponseFormattingSample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=54-59)]
+[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=54-59)]
 
 >[!TIP]
 > For non-trivial actions with multiple return types or options (for example, different HTTP status codes based on the result of operations performed), prefer `IActionResult` as the return type.
 
 ## Content Negotiation
 
-Content negotiation (*conneg* for short) occurs when the client specifies an [Accept header](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). The default format used by ASP.NET Core MVC is JSON. Content negotiation is implemented by `ObjectResult`. It is also built into the status code specific action results returned from the helper methods (which are all based on `ObjectResult`). You can also return a model type (a class you've defined as your data transfer type) and the framework will automatically wrap it in an `ObjectResult` for you.
+Content negotiation (*conneg* for short) occurs when the client specifies an [Accept header](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). The default format used by ASP.NET Core MVC is JSON. Content negotiation is implemented by `ObjectResult`. It's also built into the status code specific action results returned from the helper methods (which are all based on `ObjectResult`). You can also return a model type (a class you've defined as your data transfer type) and the framework will automatically wrap it in an `ObjectResult` for you.
 
 The following action method uses the `Ok` and `NotFound` helper methods:
 
-[!code-csharp[Main](./formatting/sample/src/ResponseFormattingSample/Controllers/Api/AuthorsController.cs?highlight=8,10&range=28-38)]
+[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=8,10&range=28-38)]
 
 A JSON-formatted response will be returned unless another format was requested and the server can return the requested format. You can use a tool like [Fiddler](http://www.telerik.com/fiddler) to create a request that includes an Accept header and specify another format. In that case, if the server has a *formatter* that can produce a response in the requested format, the result will be returned in the client-preferred format.
 
@@ -72,13 +71,13 @@ Controller actions can return POCOs (Plain Old CLR Objects), in which case ASP.N
 
 Returning an object type:
 
-[!code-csharp[Main](./formatting/sample/src/ResponseFormattingSample/Controllers/Api/AuthorsController.cs?highlight=3&range=40-45)]
+[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3&range=40-45)]
 
 In the sample, a request for a valid author alias will receive a 200 OK response with the author's data. A request for an invalid alias will receive a 204 No Content response. Screenshots showing the response in XML and JSON formats are shown below.
 
 ### Content Negotiation Process
 
-Content *negotiation* only takes place if an `Accept` header appears in the request. When a request contains an accept header, the framework will enumerate the media types in the accept header in preference order and will try to find a formatter that can produce a response in one of the formats specified by the accept header. In case no formatter is found that can satisfy the client's request, the framework will try to find the first formatter that can produce a response (unless the developer has configured the option on `MvcOptions` to return 406 Not Acceptable instead). If the request specifies XML, but the XML formatter has not been configured, then the JSON formatter will be used. More generally, if no formatter is configured that can provide the requested format, then the first formatter than can format the object is used. If no header is given, the first formatter that can handle the object to be returned will be used to serialize the response. In this case, there isn't any
+Content *negotiation* only takes place if an `Accept` header appears in the request. When a request contains an accept header, the framework will enumerate the media types in the accept header in preference order and will try to find a formatter that can produce a response in one of the formats specified by the accept header. In case no formatter is found that can satisfy the client's request, the framework will try to find the first formatter that can produce a response (unless the developer has configured the option on `MvcOptions` to return 406 Not Acceptable instead). If the request specifies XML, but the XML formatter has not been configured, then the JSON formatter will be used. More generally, if no formatter is configured that can provide the requested format, then the first formatter that can format the object is used. If no header is given, the first formatter that can handle the object to be returned will be used to serialize the response. In this case, there isn't any
 negotiation taking place - the server is determining what format it will use.
 
 > [!NOTE]
@@ -93,13 +92,13 @@ If you would prefer your application honor browser accept headers, you can confi
 ```csharp
 services.AddMvc(options =>
 {
-  options.RespectBrowserAcceptHeader = true; // false by default
-}
+    options.RespectBrowserAcceptHeader = true; // false by default
+});
 ```
 
 ## Configuring Formatters
 
-If your application needs to support additional formats beyond the default of JSON, you can add NuGet packages and configure MVC to support them. There are separate formatters for input and output. Input formatters are used by [Model Binding](model-binding.md); output formatters are used to format responses. You can also configure [🔧 Custom Formatters](../advanced/custom-formatters.md).
+If your application needs to support additional formats beyond the default of JSON, you can add NuGet packages and configure MVC to support them. There are separate formatters for input and output. Input formatters are used by [Model Binding](model-binding.md); output formatters are used to format responses. You can also configure [Custom Formatters](../advanced/custom-formatters.md).
 
 ### Adding XML Format Support
 
@@ -107,14 +106,14 @@ To add support for XML formatting, install the `Microsoft.AspNetCore.Mvc.Formatt
 
 Add the XmlSerializerFormatters to MVC's configuration in *Startup.cs*:
 
-[!code-csharp[Main](./formatting/sample/src/ResponseFormattingSample/Startup.cs?highlight=4&range=30-36)]
+[!code-csharp[Main](./formatting/sample/Startup.cs?name=snippet1&highlight=2)]
 
 Alternately, you can add just the output formatter:
 
 ```csharp
 services.AddMvc(options =>
 {
-  options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+    options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
 });
 ```
 
@@ -123,7 +122,7 @@ These two approaches will serialize results using `System.Xml.Serialization.XmlS
 ```csharp
 services.AddMvc(options =>
 {
-  options.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
+    options.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
 });
 ```
 
@@ -157,8 +156,8 @@ Some special cases are implemented using built-in formatters. By default, `strin
 ```csharp
 services.AddMvc(options =>
 {
-  options.OutputFormatters.RemoveType<TextOutputFormatter>();
-  options.OutputFormatters.RemoveType<HttpNoContentOutputFormatter>();
+    options.OutputFormatters.RemoveType<TextOutputFormatter>();
+    options.OutputFormatters.RemoveType<HttpNoContentOutputFormatter>();
 });
 ```
 
@@ -174,14 +173,14 @@ Clients can request a particular format as part of the URL, such as in the query
 [FormatFilter]
 public class ProductsController
 {
-  [Route("[controller]/[action]/{id}.{format?}")]
-  public Product GetById(int id)
+    [Route("[controller]/[action]/{id}.{format?}")]
+    public Product GetById(int id)
 ```
 
 This route would allow the requested format to be specified as an optional file extension. The `[FormatFilter]` attribute checks for the existence of the format value in the `RouteData` and will map the response format to the appropriate formatter when the response is created.
 
-|Route|Formatter|
-|--- |--- |
-|`/products/GetById/5`|The default output formatter|
-|`/products/GetById/5.json`|The JSON formatter (if configured)|
-|`/products/GetById/5.xml`|The XML formatter (if configured)|
+| Route                      | Formatter                          |
+| -------------------------- | ---------------------------------- |
+| `/products/GetById/5`      | The default output formatter       |
+| `/products/GetById/5.json` | The JSON formatter (if configured) |
+| `/products/GetById/5.xml`  | The XML formatter (if configured)  |

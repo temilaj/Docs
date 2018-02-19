@@ -1,4 +1,5 @@
 ---
+uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 title: "ASP.NET Web Deployment using Visual Studio: Deploying a Code Update | Microsoft Docs"
 author: tdykstra
 description: "This tutorial series shows you how to deploy (publish) an ASP.NET web application to Azure App Service Web Apps or to a third-party hosting provider, by usin..."
@@ -73,7 +74,7 @@ Deploying to the test environment is now a simple matter of running one-click pu
 
 You would normally also do regression testing (that is, test the rest of the site to make sure that the new change didn't break any existing functionality). But for this tutorial you'll skip that step and proceed to deploy the update to staging and production.
 
-When you redeploy, Web Deploy automatically determines which files have changed and only copies changed files to the server. By default, Web Deploy uses last-changed dates on files to determine which ones have changed. Some source control systems change file dates even when you don't change the file contents. In that case, you might want to configure Web Deploy to use file checksums to determine which files have changed. For more information, see [Why do all of my files get redeployed although I didn't change them?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#use_checksum) in the ASP.NET Deployment FAQ.
+When you redeploy, Web Deploy automatically determines which files have changed and only copies changed files to the server. By default, Web Deploy uses last-changed dates on files to determine which ones have changed. Some source control systems change file dates even when you don't change the file contents. In that case, you might want to configure Web Deploy to use file checksums to determine which files have changed. For more information, see [Why do all of my files get redeployed although I didn't change them?](https://msdn.microsoft.com/library/ee942158.aspx#use_checksum) in the ASP.NET Deployment FAQ.
 
 ## Take the application offline during deployment
 

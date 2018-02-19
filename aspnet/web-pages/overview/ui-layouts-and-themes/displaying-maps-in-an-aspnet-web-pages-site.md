@@ -1,4 +1,5 @@
 ---
+uid: web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 title: "Displaying Maps in an ASP.NET Web Pages (Razor) Site | Microsoft Docs"
 author: tfitzmac
 description: "This article explains how to display interactive maps on pages in an ASP.NET Web Pages (Razor) website based on mapping services provided by Bing, Google, Ma..."
@@ -108,4 +109,4 @@ This example shows how to create a map based on coordinates. This example shows 
 ## Additional Resources
 
 
-[Microsoft.Maps API Reference](https://msdn.microsoft.com/en-us/library/gg427611.aspx)
+[Microsoft.Maps API Reference](https://msdn.microsoft.com/library/gg427611.aspx)

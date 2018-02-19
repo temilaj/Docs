@@ -1,4 +1,5 @@
 ---
+uid: web-pages/overview/releases/top-features-in-web-pages-2
 title: "The Top Features in ASP.NET Web Pages 2 | Microsoft Docs"
 author: microsoft
 description: "This topic provides an overview of the top new features in the ASP.NET Web Pages 2, a lightweight web programming framework that is included with the WebMatr..."
@@ -93,12 +94,13 @@ The Beta version released in February 2012 has only a few changes from the Beta 
 
     This is a breaking change; the `Scripts` class is not available in the Beta release. The code examples in this document that use asset management have been updated with this change.
 
+<a id="templates"></a>
 ### Using the New and Updated Site Templates
 
 The **Starter Site** template has been updated so that it runs on Web Pages 2 by default. It also includes the following new capabilities:
 
 - Mobile-friendly page rendering. Through the use of CSS styles and the `@media` selector, the **Starter Site** provides improved rendering of pages on smaller screens, including mobile device screens.
-- Improved membership and authentication options. You can let users log into your site using their accounts from other social networking sites, such as Twitter, Facebook, and Windows Live. For more information, see the [Enabling Logins from Facebook and Other Sites using OAuth and OpenID](#authentication) section.
+- Improved membership and authentication options. You can let users log into your site using their accounts from other social networking sites, such as Twitter, Facebook, and Windows Live. For more information, see the [Enabling Logins from Facebook and Other Sites using OAuth and OpenID](#oauthsetup) section.
 - HTML5 elements.
 
 The new **Personal Site** template lets you create a website that contains a personal blog, a photos page, and a Twitter page. You can customize a site based on the **Personal Site** template by doing the following:

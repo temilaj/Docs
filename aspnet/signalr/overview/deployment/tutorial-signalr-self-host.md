@@ -1,4 +1,5 @@
 ---
+uid: signalr/overview/deployment/tutorial-signalr-self-host
 title: "Tutorial: SignalR Self-Host | Microsoft Docs"
 author: pfletcher
 description: "This tutorial shows how to create a self-hosted SignalR 2 server, and how to connect to it with a JavaScript client. Software versions used in the tutorial V..."
@@ -88,7 +89,7 @@ In this tutorial, you'll create a server that's hosted in a console application,
 
     The above code includes three classes:
 
-    - **Program**, including the **Main** method defining the primary path of execution. In this method, a web application of type **Startup** is started at the specified URL (`http://localhost:8080`). If security is required on the endpoint, SSL can be implemented. See [How to: Configure a Port with an SSL Certificate](https://msdn.microsoft.com/en-us/library/ms733791.aspx) for more information.
+    - **Program**, including the **Main** method defining the primary path of execution. In this method, a web application of type **Startup** is started at the specified URL (`http://localhost:8080`). If security is required on the endpoint, SSL can be implemented. See [How to: Configure a Port with an SSL Certificate](https://msdn.microsoft.com/library/ms733791.aspx) for more information.
     - **Startup**, the class containing the configuration for the SignalR server (the only configuration this tutorial uses is the call to `UseCors`), and the call to `MapSignalR`, which creates routes for any Hub objects in the project.
     - **MyHub**, the SignalR Hub class that the application will provide to clients. This class has a single method, **Send**, that clients will call to broadcast a message to all other connected clients.
 6. Compile and run the application. The address that the server is running should show in a console window.

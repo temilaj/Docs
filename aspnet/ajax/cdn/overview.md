@@ -1,10 +1,11 @@
 ---
+uid: ajax/cdn/overview
 title: "Microsoft Ajax Content Delivery Network | Microsoft Docs"
 author: rick-anderson
 description: ""
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 07/21/2014
+ms.date: 10/14/2017
 ms.topic: article
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 ms.technology: 
@@ -14,6 +15,8 @@ msc.type: content
 ---
 Microsoft Ajax Content Delivery Network
 ====================
+Note: The Microsoft Ajax CDN has no SLA above and beyond using an Azure CDN.
+
 ## Table of Contents
 
 **[ajax.microsoft.com renamed to ajax.aspnetcdn.com](#ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18)**  
@@ -153,6 +156,31 @@ The CDN hosts some of the most popular third party JavaScript libraries. Microso
 ### jQuery Releases on the CDN
 
 The following releases of jQuery are hosted on the CDN:
+
+#### jQuery version 3.3.1
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.map
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.slim.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.slim.min.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.slim.min.map
+
+#### jQuery version 3.2.1
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.map
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.slim.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.slim.min.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.slim.min.map
+
+#### jQuery version 3.2.0
+
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.map
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.slim.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.slim.min.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.slim.min.map
 
 #### jQuery version 3.1.1
 
@@ -568,7 +596,8 @@ The following releases of the jQuery UI library are hosted on this CDN. Click ea
 
 The following releases of the jQuery Validation library are hosted on this CDN. Click each link to see the actual list of files.
 
-- [jQuery Validate 1.16.0](jquery-validate/cdnjqueryvalidate1160.md "jQuery Validation 1.16.1")
+- [jQuery Validate 1.17.0](jquery-validate/cdnjqueryvalidate1170.md "jQuery Validation 1.17.0")
+- [jQuery Validate 1.16.0](jquery-validate/cdnjqueryvalidate1160.md "jQuery Validation 1.16.0")
 - [jQuery Validate 1.15.1](jquery-validate/cdnjqueryvalidate1151.md "jQuery Validation 1.15.1")
 - [jQuery Validate 1.15.0](jquery-validate/cdnjqueryvalidate1150.md "jQuery Validation 1.15.0")
 - [jQuery Validate 1.14.0](jquery-validate/cdnjqueryvalidate1140.md "jQuery Validation 1.14.0")
@@ -648,12 +677,12 @@ The following releases of the jQuery DataTables plugin are hosted on this CDN. C
 
 The following releases of [Modernizr](http://www.modernizr.com "Modernizr") are hosted on the CDN:
 
-- http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.0.6-development-only.js
-- http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-1.7-development-only.js
-- http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.6.2.js
-- http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.7.1.js
-- http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.7.2.js
 - http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js
+- http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.7.2.js
+- http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.7.1.js
+- http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.6.2.js
+- http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-1.7-development-only.js
+- http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.0.6-development-only.js
 
 <a id="JSHint_Releases_on_the_CDN_10"></a>
 
@@ -687,6 +716,8 @@ The following releases of [Knockout](http://www.knockoutjs.com "Knockout") are h
 - http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.0.debug.js
 - http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.1.js
 - http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.1.debug.js
+- http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js
+- http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.debug.js
 
 <a id="Globalize_Releases_on_the_CDN_12"></a>
 
@@ -986,7 +1017,7 @@ The following releases of [getbootstrap.com](http://getbootstrap.com "getbootstr
 - http://ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/img/glyphicons-halflings.png
 - http://ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/img/glyphicons-halflings-white.png
 
-<a id="#BootstrapTouchCarousel_Releases_on_the_CDN_18"></a>
+<a id="BootstrapTouchCarousel_Releases_on_the_CDN_18"></a>
 
 ### Bootstrap TouchCarousel Releases on the CDN
 
@@ -1069,6 +1100,11 @@ The following ASP.NET MVC JavaScript files are hosted on this CDN:
 ### ASP.NET SignalR Releases on the CDN
 
 The following ASP.NET SignalR JavaScript files are hosted on this CDN:
+
+#### ASP.NET SignalR 2.2.2
+
+- http://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.2.min.js
+- http://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.2.js
 
 #### ASP.NET SignalR 2.2.1
 

@@ -1,34 +1,32 @@
 ---
-title: Working with SQL Server LocalDB | Microsoft Docs
+title: Working with SQL Server LocalDB
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
-ms.author: riande
+description: Using SQL Server LocalDB with a simple MVC app
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.assetid: ff8fd9b8-7c98-424d-8641-7524e23bf541
+ms.author: riande
+ms.date: 03/07/2017
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: get-started-article
 uid: tutorials/first-mvc-app/working-with-sql
 ---
 # Working with SQL Server LocalDB
 
 By [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-The `ApplicationDbContext` class handles the task of connecting to the database and mapping `Movie` objects to database records. The database context is registered with the [Dependency Injection](../../fundamentals/dependency-injection.md) container in the `ConfigureServices` method in the *Startup.cs* file:
+The `MvcMovieContext` object handles the task of connecting to the database and mapping `Movie` objects to database records. The database context is registered with the [Dependency Injection](xref:fundamentals/dependency-injection) container in the `ConfigureServices` method in the *Startup.cs* file:
 
-[!code-csharp[Main](start-mvc/sample2/src/MvcMovie/Startup.cs?name=snippet_details)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
 
-The ASP.NET Core [Configuration](../../fundamentals/configuration.md) system reads the `ConnectionString`. For local development, it gets the connection string from the *appsettings.json* file:
+The ASP.NET Core [Configuration](xref:fundamentals/configuration/index) system reads the `ConnectionString`. For local development, it gets the connection string from the *appsettings.json* file:
 
-[!code-javascript[Main](../../tutorials/first-mvc-app/start-mvc/sample2/src/MvcMovie/appsettings.json?highlight=3&range=1-6)]
+[!code-json[Main](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
-When you deploy the app to a test or production server, you can use an environment variable or another approach to set the connection string to a real SQL Server. See [Configuration](../../fundamentals/configuration.md) .
+When you deploy the app to a test or production server, you can use an environment variable or another approach to set the connection string to a real SQL Server. See [Configuration](xref:fundamentals/configuration/index) for more information.
 
 ## SQL Server Express LocalDB
 
-LocalDB is a lightweight version of the SQL Server Express Database Engine that is targeted for program development. LocalDB starts on demand and runs in user mode, so there is no complex configuration. By default, LocalDB database creates "\*.mdf" files in the *C:/Users/\<user\>* directory.
+LocalDB is a lightweight version of the SQL Server Express Database Engine that's targeted for program development. LocalDB starts on demand and runs in user mode, so there's no complex configuration. By default, LocalDB database creates "\*.mdf" files in the *C:/Users/\<user\>* directory.
 
 * From the **View** menu, open **SQL Server Object Explorer** (SSOX).
 
@@ -52,9 +50,9 @@ Note the key icon next to `ID`. By default, EF will make a property named `ID` t
 
 Create a new class named `SeedData` in the *Models* folder. Replace the generated code with the following:
 
-[!code-csharp[Main](start-mvc/sample2/src/MvcMovie/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[Main](start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
 
-Notice if there are any movies in the DB, the seed initializer returns.
+If there are any movies in the DB, the seed initializer returns and no movies are added.
 
 ```csharp
 if (context.Movie.Any())
@@ -63,9 +61,22 @@ if (context.Movie.Any())
 }
 ```
 
-Add the seed initializer to the end of the `Configure` method in the *Startup.cs* file:
+<a name="si"></a>
+### Add the seed initializer
 
-[!code-csharp[Main](start-mvc/sample2/src/MvcMovie/Startup.cs?highlight=9&range=79-)]
+# [ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+Add the seed initializer to the `Main` method in the *Program.cs* file:
+
+[!code-csharp[Main](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
+
+# [ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+Add the seed initializer to the end of the `Configure` method in the *Startup.cs* file.
+
+[!code-csharp[Main](start-mvc/sample/MvcMovie/Startup.cs?highlight=9&name=snippet_seed)]
+
+---
 
 Test the app
 
@@ -77,9 +88,6 @@ Test the app
     ![IIS Express system tray icon](working-with-sql/_static/iisExIcon.png)
 
     ![Contextual menu](working-with-sql/_static/stopIIS.png)
-
-    > [!Note]
-    > In Visual Studio 2017 RC you don't need to stop IIS Express.
 
    * If you were running VS in non-debug mode, press F5 to run in debug mode
    * If you were running VS in debug mode, stop the debugger and press F5

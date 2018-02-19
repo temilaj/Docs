@@ -1,4 +1,5 @@
 ---
+uid: signalr/overview/getting-started/supported-platforms
 title: "Supported Platforms | Microsoft Docs"
 author: pfletcher
 description: "This article describes what clients and servers are supported by SignalR."
@@ -23,7 +24,7 @@ by [Patrick Fletcher](https://github.com/pfletcher)
 > Please leave feedback on how you liked this tutorial and what we could improve in the comments at the bottom of the page. If you have questions that are not directly related to the tutorial, you can post them to the [ASP.NET SignalR forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) or [StackOverflow.com](http://stackoverflow.com/).
 
 
-SignalR is supported under a variety of server and client configurations. In addition, each transport option has a set of requirements of its own; if the system requirements for a transport are not available, SignalR will gracefully failover to other transports. For more information on the transports that SignalR supports, see [Transports and Fallbacks](introduction-to-signalr.md).
+SignalR is supported under a variety of server and client configurations. In addition, each transport option has a set of requirements of its own; if the system requirements for a transport are not available, SignalR will gracefully failover to other transports. For more information on the transports that SignalR supports, see [Transports and Fallbacks](introduction-to-signalr.md#transports).
 
 ## Server system requirements
 
@@ -35,13 +36,14 @@ The SignalR server component can be hosted in the following server or client ope
 
 - Windows Server 2012
 - Windows Server 2008 r2
+- Windows 10
 - Windows 8
 - Windows 7
 - Windows Azure
 
 ### Supported server .NET Framework version
 
-SignalR 2 is only supported on .NET Famework 4.5. See the [Recommended Updates](#updates) section for updates that enhance reliability, compatibility, stability, and performance.
+SignalR 2 is only supported on .NET Framework 4.5. See the [Recommended Updates](#updates) section for updates that enhance reliability, compatibility, stability, and performance.
 
 ### Supported server IIS versions
 

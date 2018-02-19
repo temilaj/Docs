@@ -1,4 +1,5 @@
 ---
+uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 title: "Creating an OData v3 Endpoint with Web API 2 | Microsoft Docs"
 author: MikeWasson
 description: "The Open Data Protocol (OData) is a data access protocol for the web. OData provides a uniform way to structure data, query the data, and manipulate the data..."
@@ -89,7 +90,7 @@ Build the project now. In the next step, we'll use some Visual Studio scaffoldin
 
 A *controller* is a class that handles HTTP requests. You define a separate controller for each entity set in you OData service. In this tutorial, we'll create a single controller.
 
-In Solution Explorer, right-click the the Controllers folder. Select **Add** and then select **Controller**.
+In Solution Explorer, right-click the Controllers folder. Select **Add** and then select **Controller**.
 
 ![](creating-an-odata-endpoint/_static/image5.png)
 

@@ -1,4 +1,5 @@
 ---
+uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4
 title: "Part 4: Models and Data Access | Microsoft Docs"
 author: jongalloway
 description: "This tutorial series details all of the steps taken to build the ASP.NET MVC Music Store sample application. Part 4 covers Models and Data Access."
@@ -148,8 +149,6 @@ Now that our Store Details page is set up to display an album by the Album ID, l
 We're now able to browse from our Store page to a Genre page, which lists the available albums, and by clicking on an album we can view details for that album.
 
 ![](mvc-music-store-part-4/_static/image6.png)
-
-*Please use the Discussions at [http://mvcmusicstore.codeplex.com](http://mvcmusicstore.codeplex.com) for any questions or comments.*
 
 >[!div class="step-by-step"]
 [Previous](mvc-music-store-part-3.md)

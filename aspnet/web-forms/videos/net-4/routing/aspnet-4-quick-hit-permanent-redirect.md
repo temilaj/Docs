@@ -1,5 +1,6 @@
 ---
-title: "ASP.NET 4 "Quick Hit" - Permanent Redirect | Microsoft Docs"
+uid: web-forms/videos/net-4/routing/aspnet-4-quick-hit-permanent-redirect
+title:  Permanent Redirect | Microsoft Docs
 author: JoeStagner
 description: "In this video you will learn how to use the RedirectPermanent helper method to issue HTTP 301 responses."
 ms.author: aspnetcontent

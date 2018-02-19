@@ -1,4 +1,5 @@
 ---
+uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
 title: "Part 1: Overview and Creating the Project | Microsoft Docs"
 author: MikeWasson
 description: ""
@@ -78,7 +79,7 @@ The "Internet Application" template creates an ASP.NET MVC application that supp
 - New users can register by clicking the "Register" link in the upper right corner.
 - Registered users can log in by clicking the "Log in" link.
 
-Membership information is persisted in a database that gets created automatically. For more information about forms authentication in ASP.NET MVC, see [Walkthrough: Using Forms Authentication in ASP.NET MVC](https://msdn.microsoft.com/en-us/library/ff398049(VS.98).aspx).
+Membership information is persisted in a database that gets created automatically. For more information about forms authentication in ASP.NET MVC, see [Walkthrough: Using Forms Authentication in ASP.NET MVC](https://msdn.microsoft.com/library/ff398049(VS.98).aspx).
 
 ## Update the CSS File
 

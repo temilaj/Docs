@@ -1,4 +1,5 @@
 ---
+uid: mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 title: "Understanding Action Filters (C#) | Microsoft Docs"
 author: microsoft
 description: "The goal of this tutorial is to explain action filters. An action filter is an attribute that you can apply to a controller action -- or an entire controller..."
@@ -76,7 +77,7 @@ Exception filters are the last type of filter to run. You can use an exception f
 
 Each different type of filter is executed in a particular order. If you want to control the order in which filters of the same type are executed then you can set a filter's Order property.
 
-The base class for all action filters is the `System.Web.Mvc.FilterAttribute` class. If you want to implement a particular type of filter, then you need to create a class that inherits from the base Filter class and implements one or more of the `IAuthorizationFilter`, `IActionFilter`, `IResultFilter`, or `ExceptionFilter` interfaces.
+The base class for all action filters is the `System.Web.Mvc.FilterAttribute` class. If you want to implement a particular type of filter, then you need to create a class that inherits from the base Filter class and implements one or more of the `IAuthorizationFilter`, `IActionFilter`, `IResultFilter`, or `IExceptionFilter` interfaces.
 
 ### The Base ActionFilterAttribute Class
 

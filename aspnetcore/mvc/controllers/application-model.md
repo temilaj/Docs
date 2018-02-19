@@ -1,20 +1,18 @@
 ---
-title: Working with the Application Model | Microsoft Docs
+title: Working with the Application Model
 author: ardalis
 description: 
-keywords: ASP.NET Core, ASP.NET Core MVC, application model
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.assetid: 4eb7e52f-5665-41a4-a3e3-e348d07337f2
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: article
 uid: mvc/controllers/application-model
 ---
 # Working with the Application Model
 
-By [Steve Smith](http://ardalis.com)
+By [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core MVC defines an *application model* representing the components of an MVC app. You can read and manipulate this model to modify how MVC elements behave. By default, MVC follows certain conventions to determine which classes are considered to be controllers, which methods on those classes are actions, and how parameters and routing behave. You can customize this behavior to suit your app's needs by creating your own conventions and applying them globally or as attributes.
 
@@ -32,7 +30,7 @@ The ASP.NET Core MVC Application Model has the following structure:
 Each level of the model has access to a common `Properties` collection, and lower levels can access and overwrite property values set by higher levels in the hierarchy. The properties are persisted to the `ActionDescriptor.Properties` when the actions are created. Then when a request is being handled, any properties a convention added or modified can be accessed through `ActionContext.ActionDescriptor.Properties`. Using properties is a great way to configure your filters, model binders, etc. on a per-action basis.
 
 > [!NOTE]
-> The `ActionDescriptor.Properties` collection is not thread safe (for writes) once app startup has finished. Conventions are the best way to safely add data to this collection.
+> The `ActionDescriptor.Properties` collection isn't thread safe (for writes) once app startup has finished. Conventions are the best way to safely add data to this collection.
 
 ### IApplicationModelProvider
 
@@ -50,7 +48,7 @@ Then (`Order=-990`):
 * [`CorsApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.cors.internal.corsapplicationmodelprovider)
 
 > [!NOTE]
-> The order in which two providers with the same value for `Order` are called is undefined, and therefore should not be relied upon.
+> The order in which two providers with the same value for `Order` are called is undefined, and therefore shouldn't be relied upon.
 
 > [!NOTE]
 > `IApplicationModelProvider` is an advanced concept for framework authors to extend. In general, apps should use conventions and frameworks should use providers. The key distinction is that providers always run before conventions.
@@ -65,13 +63,13 @@ The `DefaultApplicationModelProvider` establishes many of the default behaviors 
 
 Some built-in behaviors are implemented by the `DefaultApplicationModelProvider`. This provider is responsible for constructing the [`ControllerModel`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), which in turn references [`ActionModel`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel), [`PropertyModel`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), and [`ParameterModel`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel) instances. The `DefaultApplicationModelProvider` class is an internal framework implementation detail that can and will change in the future. 
 
-The `AuthorizationApplicationModelProvider` is responsible for applying the behavior associated with the `AuthorizeFilter` and `AllowAnonymousFilter` attributes. [Learn more about these attributes](https://docs.microsoft.com/aspnet/core/security/authorization/simple).
+The `AuthorizationApplicationModelProvider` is responsible for applying the behavior associated with the `AuthorizeFilter` and `AllowAnonymousFilter` attributes. [Learn more about these attributes](xref:security/authorization/simple).
 
-The `CorsApplicationModelProvider` implements behavior associated with the `IEnableCorsAttribute` and `IDisableCorsAttribute`, and the `DisableCorsAuthorizationFilter`. [Learn more about CORS](https://docs.microsoft.com/aspnet/core/security/cors).
+The `CorsApplicationModelProvider` implements behavior associated with the `IEnableCorsAttribute` and `IDisableCorsAttribute`, and the `DisableCorsAuthorizationFilter`. [Learn more about CORS](xref:security/cors).
 
 ## Conventions
 
-The application model defines convention abstractions that provide a simpler way to customize the behavior of the models than overriding the entire model or provider. These abstractions are the recommended way to modify your app's behavior. Conventions provide a way for you to write code that will dynamically apply customizations. While [filters](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters) provide a means of modifying the framework's behavior, customizations let you control how the whole app is wired together.
+The application model defines convention abstractions that provide a simpler way to customize the behavior of the models than overriding the entire model or provider. These abstractions are the recommended way to modify your app's behavior. Conventions provide a way for you to write code that will dynamically apply customizations. While [filters](xref:mvc/controllers/filters) provide a means of modifying the framework's behavior, customizations let you control how the whole app is wired together.
 
 The following conventions are available:
 
@@ -80,7 +78,7 @@ The following conventions are available:
 * [`IActionModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iactionmodelconvention)
 * [`IParameterModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iparametermodelconvention)
 
-Conventions are applied by adding them to MVC options or by implementing `Attribute`s and applying them to controllers, actions, or action parameters (similar to [`Filters`](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters)). Unlike filters, conventions are only executed when the app is starting, not as part of each request.
+Conventions are applied by adding them to MVC options or by implementing `Attribute`s and applying them to controllers, actions, or action parameters (similar to [`Filters`](xref:mvc/controllers/filters)). Unlike filters, conventions are only executed when the app is starting, not as part of each request.
 
 ### Sample: Modifying the ApplicationModel
 
@@ -130,7 +128,7 @@ The attribute may be applied to any action parameter:
 
 ### Sample: Modifying the ActionModel Name
 
-The following convention modifies the `ActionModel` to update the *name* of the action to which it is applied. The new name is provided as a parameter to the attribute. This new name is used by routing, so it will affect the route used to reach this action method.
+The following convention modifies the `ActionModel` to update the *name* of the action to which it's applied. The new name is provided as a parameter to the attribute. This new name is used by routing, so it will affect the route used to reach this action method.
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/CustomActionNameAttribute.cs)]
 
@@ -154,7 +152,7 @@ The convention is added as an option in Startup.
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=6)]
 
 > [!TIP]
-> You can add conventions to your [middleware](https://docs.microsoft.com/aspnet/core/fundamentals/middleware) by accessing `MvcOptions` using `services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
+> You can add conventions to your [middleware](xref:fundamentals/middleware/index) by accessing `MvcOptions` using `services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
 
 This sample applies this convention to routes that are not using attribute routing where the controller has  "Namespace" in its name. The following controller demonstrates this convention:
 
@@ -162,10 +160,10 @@ This sample applies this convention to routes that are not using attribute routi
 
 ## Application Model Usage in WebApiCompatShim
 
-ASP.NET MVC Core uses a different set of conventions from ASP.NET Web API 2. Using custom conventions, you can modify an ASP.NET MVC Core app's behavior to be consistent with that of a Web API app. Microsoft ships the [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/) specifically for this purpose.
+ASP.NET Core MVC uses a different set of conventions from ASP.NET Web API 2. Using custom conventions, you can modify an ASP.NET Core MVC app's behavior to be consistent with that of a Web API app. Microsoft ships the [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/) specifically for this purpose.
 
 > [!NOTE]
-> Learn more about [migrating from ASP.NET Web API](https://docs.microsoft.com/aspnet/core/migration/webapi)).
+> Learn more about [migrating from ASP.NET Web API](xref:migration/webapi).
 
 To use the Web API Compatibility Shim, you need to add the package to your project and then add the conventions to MVC by calling `AddWebApiConventions` in `Startup`:
 
@@ -182,7 +180,7 @@ The conventions provided by the shim are only applied to parts of the app that h
 
 ### Action Conventions
 
-The `UseWebApiActionConventionsAttribute` is used to map the HTTP method to actions based on their name (for instance, `Get` would map to `HttpGet`). It only applies to actions that do not use attribute routing.
+The `UseWebApiActionConventionsAttribute` is used to map the HTTP method to actions based on their name (for instance, `Get` would map to `HttpGet`). It only applies to actions that don't use attribute routing.
 
 ### Overloading
 
@@ -194,7 +192,7 @@ The `UseWebApiParameterConventionsAttribute` is used to apply the `WebApiParamet
 
 ### Routes
 
-The `UseWebApiRoutesAttribute` controls whether the `WebApiApplicationModelConvention` controller convention is applied. When enabled, this convention is used to add support for [areas](https://docs.microsoft.com/aspnet/core/mvc/controllers/areas) to the route.
+The `UseWebApiRoutesAttribute` controls whether the `WebApiApplicationModelConvention` controller convention is applied. When enabled, this convention is used to add support for [areas](xref:mvc/controllers/areas) to the route.
 
 In addition to a set of conventions, the compatibility package includes a `System.Web.Http.ApiController` base class that replaces the one provided by Web API. This allows your controllers written for Web API and inheriting from its `ApiController` to work as they were designed, while running on ASP.NET Core MVC. This base controller class is decorated with all of the `UseWebApi*` attributes listed above. The `ApiController` exposes properties, methods, and result types that are compatible with those found in Web API.
 

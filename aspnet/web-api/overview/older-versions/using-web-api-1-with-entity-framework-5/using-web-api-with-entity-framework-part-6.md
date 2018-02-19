@@ -1,4 +1,5 @@
 ---
+uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6
 title: "Part 6: Creating Product and Order Controllers | Microsoft Docs"
 author: MikeWasson
 description: ""
@@ -80,7 +81,7 @@ Change the `GetOrder` method as follows:
 Here are the changes that we made to the method:
 
 - The return value is an `OrderDTO` instance, instead of an `Order`.
-- When we query the database for the order, we use the [DbQuery.Include](https://msdn.microsoft.com/en-us/library/gg696395) method to fetch the related `OrderDetail` and `Product` entities.
+- When we query the database for the order, we use the [DbQuery.Include](https://msdn.microsoft.com/library/gg696395) method to fetch the related `OrderDetail` and `Product` entities.
 - We flatten the result by using a projection.
 
 The HTTP response will contain an array of products with quantities:

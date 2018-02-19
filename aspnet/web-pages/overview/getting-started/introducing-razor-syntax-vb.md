@@ -1,4 +1,5 @@
 ---
+uid: web-pages/overview/getting-started/introducing-razor-syntax-vb
 title: "Introduction to ASP.NET Web Programming Using the Razor Syntax (Visual Basic) | Microsoft Docs"
 author: tfitzmac
 description: "This appendix gives you an overview of programming with ASP.NET Web pages in Visual Basic, using the Razor syntax."
@@ -512,5 +513,5 @@ If your code didn't handle the exception, you would see an error page like the p
 
 ### Reference Documentation
 
-- [ASP.NET](https://msdn.microsoft.com/en-us/library/ee532866.aspx)
-- [Visual Basic Language](https://msdn.microsoft.com/en-us/library/2x7h1hfk.aspx)
+- [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
+- [Visual Basic Language](https://msdn.microsoft.com/library/2x7h1hfk.aspx)

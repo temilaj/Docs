@@ -1,4 +1,5 @@
 ---
+uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 title: "Shopping Cart | Microsoft Docs"
 author: Erikre
 description: "This tutorial series will teach you the basics of building an ASP.NET Web Forms application using ASP.NET 4.5 and Microsoft Visual Studio Express 2013 for We..."
@@ -45,7 +46,7 @@ Earlier in this tutorial series, you added pages and code to view product data f
 
 > [!NOTE] 
 > 
-> The ASP.NET Session state is a convenient place to store user-specific information which will expire after the user leaves the site. While misuse of session state can have performance implications on larger sites, light use of session state works well for demonstration purposes. The Wingtip Toys sample project shows how to use session state without an external provider, where session state is stored in-process on the web server hosting the site. For larger sites that provide multiple instances of an application or for sites that run multiple instances of an application on different servers, consider using **Windows Azure Cache Service**. This Cache Service provides a distributed caching service that is external to the web site and solves the problem of using in-process session state. For more information see, [How to Use ASP.NET Session State with Windows Azure Web Sites](https://www.windowsazure.com/en-us/manage/services/web-sites/session-state-caching/).
+> The ASP.NET Session state is a convenient place to store user-specific information which will expire after the user leaves the site. While misuse of session state can have performance implications on larger sites, light use of session state works well for demonstration purposes. The Wingtip Toys sample project shows how to use session state without an external provider, where session state is stored in-process on the web server hosting the site. For larger sites that provide multiple instances of an application or for sites that run multiple instances of an application on different servers, consider using **Windows Azure Cache Service**. This Cache Service provides a distributed caching service that is external to the web site and solves the problem of using in-process session state. For more information see, [How to Use ASP.NET Session State with Windows Azure Web Sites](https://docs.microsoft.com/azure/redis-cache/cache-aspnet-session-state-provider).
 
 
 ### Add CartItem as a Model Class
@@ -315,7 +316,7 @@ The shopping cart supports adding, deleting, and updating items that the user ha
 
 ## Addition Information
 
-[ASP.NET Session State Overview](https://msdn.microsoft.com/en-us/library/ms178581.aspx)
+[ASP.NET Session State Overview](https://msdn.microsoft.com/library/ms178581.aspx)
 
 >[!div class="step-by-step"]
 [Previous](display_data_items_and_details.md)

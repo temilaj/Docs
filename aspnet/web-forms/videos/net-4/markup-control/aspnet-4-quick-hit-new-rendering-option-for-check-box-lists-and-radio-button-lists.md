@@ -1,5 +1,6 @@
 ---
-title: "ASP.NET 4 "Quick Hit" – New Rendering Option for Check Box Lists and Radio Button Lists | Microsoft Docs"
+uid: web-forms/videos/net-4/markup-control/aspnet-4-quick-hit-new-rendering-option-for-check-box-lists-and-radio-button-lists
+title: New Rendering Option for Check Box Lists and Radio Button Lists | Microsoft Docs
 author: JoeStagner
 description: "In this video you will learn about the RepeatLayout rendering option for Check Box and Radio Button lists."
 ms.author: aspnetcontent

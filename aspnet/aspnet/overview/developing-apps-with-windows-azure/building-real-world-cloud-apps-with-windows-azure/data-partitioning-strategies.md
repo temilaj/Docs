@@ -1,4 +1,5 @@
 ---
+uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 title: "Data Partitioning Strategies (Building Real-World Cloud Apps with Azure) | Microsoft Docs"
 author: MikeWasson
 description: "The Building Real World Cloud Apps with Azure e-book is based on a presentation developed by Scott Guthrie. It explains 13 patterns and practices that can he..."
@@ -95,8 +96,8 @@ For more information about partitioning strategies, see the following resources.
 
 Documentation:
 
-- [Best Practices for the Design of Large-Scale Services on Windows Azure Cloud Services](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). White paper by Mark Simms and Michael Thomassy.
-- [Microsoft Patterns and Practices - Cloud Design Patterns](https://msdn.microsoft.com/en-us/library/dn568099.aspx). See Data Partitioning guidance, Sharding pattern.
+- [Best Practices for the Design of Large-Scale Services on Windows Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). White paper by Mark Simms and Michael Thomassy.
+- [Microsoft Patterns and Practices - Cloud Design Patterns](https://msdn.microsoft.com/library/dn568099.aspx). See Data Partitioning guidance, Sharding pattern.
 
 Videos:
 

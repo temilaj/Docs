@@ -1,4 +1,5 @@
 ---
+uid: web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 title: "Host ASP.NET Web API 2 in an Azure Worker Role | Microsoft Docs"
 author: MikeWasson
 description: "This tutorial shows how to host ASP.NET Web API in an Azure Worker Role, using OWIN to self-host the Web API framework. Open Web Interface for .NET (OWIN) de..."
@@ -27,7 +28,7 @@ by [Mike Wasson](https://github.com/MikeWasson)
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - Web API 2
-> - [Azure SDK for .NET 2.3](https://azure.microsoft.com/en-us/downloads/)
+> - [Azure SDK for .NET 2.3](https://azure.microsoft.com/downloads/)
 
 
 ## Create a Microsoft Azure Project
@@ -131,7 +132,7 @@ Find the IP address under Service Deployments, deployment [id], Service Details.
 
 ## Deploy to Azure
 
-For this step, you must have an Azure account. If you don't already have one, you can create a free trial account in just a couple of minutes. For details, see [Microsoft Azure Free Trial](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+For this step, you must have an Azure account. If you don't already have one, you can create a free trial account in just a couple of minutes. For details, see [Microsoft Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
 In Solution Explorer, right-click the AzureApp project. Select **Publish**.
 
@@ -160,4 +161,4 @@ The Azure Activity Log window shows the progress of the deployment. When the app
 ## Additional Resources
 
 - [An Overview of Project Katana](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
-- [Katana Project on CodePlex](http://katanaproject.codeplex.com/)
+- [Katana Project on GitHub](https://github.com/aspnet/AspNetKatana)

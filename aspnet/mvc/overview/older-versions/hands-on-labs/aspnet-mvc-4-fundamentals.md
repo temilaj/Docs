@@ -1,4 +1,5 @@
 ---
+uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 title: "ASP.NET MVC 4 Fundamentals | Microsoft Docs"
 author: rick-anderson
 description: "This Hands-On Lab is based on MVC (Model View Controller) Music Store, a tutorial application that introduces and explains step-by-step how to use ASP.NET MV..."
@@ -20,13 +21,13 @@ by [Web Camps Team](https://twitter.com/webcamps)
 > 
 > This Lab works with ASP.NET MVC 4.
 > 
-> If you wish to explore the ASP.NET MVC 3 version of the tutorial application, you can find it in [[http://mvcmusicstore.codeplex.com/](http://mvcmusicstore.codeplex.com/)](http://mvcmusicstore.codeplex.com/).
+> If you wish to explore the ASP.NET MVC 3 version of the tutorial application, you can find it in [MVC-Music-Store](https://github.com/evilDave/MVC-Music-Store).
 > 
 > > [!NOTE]
 > > This Hands-On Lab assumes that the developer has experience in Web development technologies, such as HTML and JavaScript.
 > 
 > 
-> All sample code and snippets are included in the Web Camps Training Kit, available at [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> All sample code and snippets are included in the Web Camps Training Kit, available at [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 <a id="The_Music_Store_application"></a>
@@ -97,7 +98,7 @@ This Hands-On Lab is comprised by the following exercises:
 1. [Exercise 1: Creating MusicStore ASP.NET MVC Web Application Project](#Exercise1)
 2. [Exercise 2: Creating a Controller](#Exercise2)
 3. [Exercise 3: Passing parameters to a Controller](#Exercise3)
-4. [Exercise 4: Adding Ajax for Searching Activities](#Exercise4)
+4. [Exercise 4: Creating a View](#Exercise4)
 5. [Exercise 5: Creating a View Model](#Exercise5)
 6. [Exercise 6: Using parameters in View](#Exercise6)
 7. [Exercise 7: A lap around ASP.NET MVC 4 New Template](#Exercise7)
@@ -313,7 +314,7 @@ In this task, you will use the **querystring** to send parameters to the **Brows
     > [!NOTE]
     > You are using the **HttpUtility.HtmlEncode** utility method to prevents users from injecting Javascript into the View with a link like **/Store/Browse?Genre=&lt;script&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;**.
     > 
-    > For further explanation, please visit [this msdn article](https://msdn.microsoft.com/en-us/library/a2a4yykt(v=VS.80).aspx).
+    > For further explanation, please visit [this msdn article](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
 
 <a id="Ex3Task2"></a>
 
@@ -596,7 +597,7 @@ In this task, you will create a View template that will use a StoreIndexViewMode
 
     *Add View Dialog*
 
-    The **\Views\Store\Index.cshtml** View template file is created and opened. Based on the information provided to the **Add View** dialog in the last step, the View template will expect a **StoreIndexViewModel** instance as the data to use to generate an HTML response. You will notice that the template inherits a **ViewPage<musicstore.viewmodels.storeindexviewmodel></musicstore.viewmodels.storeindexviewmodel>** in C#.
+    The **\Views\Store\Index.cshtml** View template file is created and opened. Based on the information provided to the **Add View** dialog in the last step, the View template will expect a **StoreIndexViewModel** instance as the data to use to generate an HTML response. You will notice that the template inherits a `ViewPage<musicstore.viewmodels.storeindexviewmodel>` in C#.
 
 <a id="Ex5Task5"></a>
 
@@ -962,7 +963,7 @@ In this exercise, you will explore the enhancements in the ASP.NET MVC 4 project
         *SimpleMembership Included in the solution*
 
         > [!NOTE]
-        > Find more information about [OAuthWebSecurity](https://msdn.microsoft.com/en-us/library/jj158393(v=vs.111).aspx) in MSDN.
+        > Find more information about [OAuthWebSecurity](https://msdn.microsoft.com/library/jj158393(v=vs.111).aspx) in MSDN.
 
 > [!NOTE]
 > Additionally, you can deploy this application to Windows Azure Web Sites following [Appendix B: Publishing an ASP.NET MVC 4 Application using Web Deploy](#AppendixB).

@@ -1,4 +1,5 @@
 ---
+uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 title: "ASP.NET Error Handling | Microsoft Docs"
 author: Erikre
 description: "This tutorial series will teach you the basics of building an ASP.NET Web Forms application using ASP.NET 4.5 and Microsoft Visual Studio Express 2013 for We..."
@@ -267,7 +268,7 @@ ELMAH (Error Logging Modules and Handlers) is an error logging facility that you
 - Logging of unhandled exceptions.
 - A web page to view the entire log of recoded unhandled exceptions.
 - A web page to view the full details of each logged exception.
-- An e-mail notification of each error at the time it occurs.
+- An email notification of each error at the time it occurs.
 - An RSS feed of the last 15 errors from the log.
 
 Before you can work with the ELMAH, you must install it. This is easy using the *NuGet* package installer. As mentioned earlier in this tutorial series, NuGet is a Visual Studio extension that makes it easy to install and update open source libraries and tools in Visual Studio.
@@ -329,7 +330,7 @@ Learn more about deploying your web application to Microsoft Azure, see [Deploy 
 
 I would like to thank the following people who made significant contributions to the content of this tutorial series:
 
-- [Alberto Poblacion, MVP &amp; MCT, Spain](https://mvp.microsoft.com/en-us/mvp/Alberto%20Poblacion%20Bolano-36772)
+- [Alberto Poblacion, MVP &amp; MCT, Spain](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
 - [Alex Thissen, Netherlands](http://blog.alexthissen.nl/) (twitter: [@alexthissen](http://twitter.com/alexthissen))
 - [Andre Tournier, USA](http://andret503.wordpress.com/)
 - Apurva Joshi, Microsoft
@@ -344,7 +345,7 @@ I would like to thank the following people who made significant contributions to
 - [Paul Cociuba, Microsoft](http://linqto.me/Links/pcociuba)
 - [Paulo Morgado, Portugal](http://paulomorgado.net/)
 - [Pranav Rastogi, Microsoft](https://blogs.msdn.com/b/pranav_rastogi)
-- [Tim Ammann, Microsoft](http://blogs.iis.net/timamm/default.aspx)
+- [Tim Ammann, Microsoft](https://blogs.iis.net/timamm/default.aspx)
 - [Tom Dykstra, Microsoft](https://blogs.msdn.com/aspnetue)
 
 ## Community Contributions

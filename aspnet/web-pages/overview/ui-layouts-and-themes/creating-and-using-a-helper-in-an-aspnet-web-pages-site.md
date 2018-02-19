@@ -1,4 +1,5 @@
 ---
+uid: web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
 title: "Creating and Using a Helper in an ASP.NET Web Pages (Razor) Site | Microsoft Docs"
 author: tfitzmac
 description: "This article describes how to create a helper in an ASP.NET Web Pages (Razor) website. A helper is a reusable component that includes code and markup to perf..."
@@ -76,6 +77,6 @@ This procedure shows you how to create the helper that creates the note, as just
 
 [Horizontal menu as a Razor helper](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2341). This blog entry by Mike Pope shows how to create a horizontal menu as a helper using markup, CSS, and code.
 
-[Leveraging HTML5 in ASP.Net Web Pages Helpers for WebMatrix and ASP.Net MVC3](http://geekswithblogs.net/wildturtle/archive/2010/11/08/html5-in-asp.net-web-pages-helpers-for-webmatrix-and_aspnet_mvc3.aspx). This blog entry by Sam Abraham shows a helper that renders an HTML5 `Canvas` element.
+[Leveraging HTML5 in ASP.NET Web Pages Helpers for WebMatrix and ASP.NET MVC3](http://geekswithblogs.net/wildturtle/archive/2010/11/08/html5-in-asp.net-web-pages-helpers-for-webmatrix-and_aspnet_mvc3.aspx). This blog entry by Sam Abraham shows a helper that renders an HTML5 `Canvas` element.
 
 [The Difference Between @Helpers and @Functions in WebMatrix](http://www.mikesdotnetting.com/Article/173/The-Difference-Between-@Helpers-and-@Functions-In-WebMatrix). This blog entry by Mike Brind describes `@helper` syntax and `@function` syntax and when to use each.

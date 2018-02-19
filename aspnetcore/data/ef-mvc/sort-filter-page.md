@@ -1,15 +1,12 @@
 ---
-title: ASP.NET Core MVC with EF Core - Sort, Filter, Paging - 3 of 10 | Microsoft Docs
+title: ASP.NET Core MVC with EF Core - Sort, Filter, Paging - 3 of 10
 author: tdykstra
-author: tdykstra
-description: 
-keywords: ASP.NET Core,
+description: In this tutorial you'll add sorting, filtering, and paging functionality to page using ASP.NET Core and Entity Framework Core.
 ms.author: tdykstra
-ms.date: 10/14/2016
-ms.topic: article
-ms.assetid: e6c1ff3c-5673-43bf-9c2d-077f6ada1f29
+ms.date: 03/15/2017
+ms.prod: asp.net-core
 ms.technology: aspnet
-ms.prod: aspnet-core
+ms.topic: get-started-article
 uid: data/ef-mvc/sort-filter-page
 ---
 
@@ -17,7 +14,7 @@ uid: data/ef-mvc/sort-filter-page
 
 By [Tom Dykstra](https://github.com/tdykstra) and [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-The Contoso University sample web application demonstrates how to create ASP.NET Core 1.0 MVC web applications using Entity Framework Core 1.0 and Visual Studio 2015. For information about the tutorial series, see [the first tutorial in the series](intro.md).
+The Contoso University sample web application demonstrates how to create ASP.NET Core MVC web applications using Entity Framework Core and Visual Studio. For information about the tutorial series, see [the first tutorial in the series](intro.md).
 
 In the previous tutorial, you implemented a set of web pages for basic CRUD operations for Student entities. In this tutorial you'll add sorting, filtering, and paging functionality to the Students Index page. You'll also create a page that does simple grouping.
 
@@ -52,17 +49,19 @@ These are ternary statements. The first one specifies that if the `sortOrder` pa
 | Date ascending       | ascending           | descending     |
 | Date descending      | ascending           | ascending      |
 
-The method uses LINQ to Entities to specify the column to sort by. The code creates an `IQueryable` variable before the switch statement, modifies it in the switch statement, and calls the `ToListAsync` method after the `switch` statement. When you create and modify `IQueryable` variables, no query is sent to the database. The query is not executed until you convert the `IQueryable` object into a collection by calling a method such as `ToListAsync`. Therefore, this code results in a single query that is not executed until the `return View` statement.
+The method uses LINQ to Entities to specify the column to sort by. The code creates an `IQueryable` variable before the switch statement, modifies it in the switch statement, and calls the `ToListAsync` method after the `switch` statement. When you create and modify `IQueryable` variables, no query is sent to the database. The query isn't executed until you convert the `IQueryable` object into a collection by calling a method such as `ToListAsync`. Therefore, this code results in a single query that's not executed until the `return View` statement.
+
+This code could get verbose with a large number of columns. [The last tutorial in this series](advanced.md#dynamic-linq) shows how to write code that lets you pass the name of the `OrderBy` column in a string variable.
 
 ### Add column heading hyperlinks to the Student Index view
 
-Replace the code in *Views/Students/Index.cshtml*, with the following code to rearrange the column order and add column heading hyperlinks. The changed lines are highlighted.
+Replace the code in *Views/Students/Index.cshtml*, with the following code to add column heading hyperlinks. The changed lines are highlighted.
 
-[!code-html[](intro/samples/cu/Views/Students/Index2.cshtml?highlight=16,22,32,38)]
+[!code-html[](intro/samples/cu/Views/Students/Index2.cshtml?highlight=16,22)]
 
 This code uses the information in `ViewData` properties to set up hyperlinks with the appropriate query string values.
 
-Run the page and click the **Last Name** and **Enrollment Date** column headings to verify that sorting works.
+Run the app, select the **Students** tab, and click the **Last Name** and **Enrollment Date** column headings to verify that sorting works.
 
 ![Students index page in name order](sort-filter-page/_static/name-order.png)
 
@@ -81,17 +80,17 @@ You've added a `searchString` parameter to the `Index` method. The search string
 > [!NOTE]
 > Here you are calling the `Where` method on an `IQueryable` object, and the filter will be processed on the server. In some scenarios you might be calling the `Where` method as an extension method on an in-memory collection. (For example, suppose you change the reference to `_context.Students` so that instead of an EF `DbSet` it references a repository method that returns an `IEnumerable` collection.) The result would normally be the same but in some cases may be different.
 >
->For example, the .NET Framework implementation of the `Contains` method performs a case-sensitive comparison by default, but in SQL Server this is determined by the collation setting of the SQL Server instance. That setting defaults to case-insensitive. You could call the `ToUpper` method to make the test explicitly case-insensitive:  *Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())*. That would ensure that results stay the same if you change the code later to use a repository which returns   an `IEnumerable` collection instead of an `IQueryable` object. (When you call the `Contains` method on an `IEnumerable` collection, you get the .NET Framework implementation; when you call it on an `IQueryable` object, you get the database provider implementation.) However, there is a performance penalty for this solution. The `ToUpper` code would put a function in the WHERE clause of the TSQL SELECT statement. That would prevent the optimizer from using an index. Given that SQL is mostly installed as case-insensitive, it's best to avoid the `ToUpper` code until you migrate to a case-sensitive data store.
+>For example, the .NET Framework implementation of the `Contains` method performs a case-sensitive comparison by default, but in SQL Server this is determined by the collation setting of the SQL Server instance. That setting defaults to case-insensitive. You could call the `ToUpper` method to make the test explicitly case-insensitive:  *Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())*. That would ensure that results stay the same if you change the code later to use a repository which returns   an `IEnumerable` collection instead of an `IQueryable` object. (When you call the `Contains` method on an `IEnumerable` collection, you get the .NET Framework implementation; when you call it on an `IQueryable` object, you get the database provider implementation.) However, there's a performance penalty for this solution. The `ToUpper` code would put a function in the WHERE clause of the TSQL SELECT statement. That would prevent the optimizer from using an index. Given that SQL is mostly installed as case-insensitive, it's best to avoid the `ToUpper` code until you migrate to a case-sensitive data store.
 
 ### Add a Search Box to the Student Index View
 
 In *Views/Student/Index.cshtml*, add the highlighted code immediately before the opening table tag in order to create a caption, a text box, and a **Search** button.
 
-[!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=10-23&highlight=5-13)]
+[!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-This code uses the `<form>` [tag helper](https://docs.asp.net/en/latest/mvc/views/tag-helpers/intro.html) to add the search text box and button. By default, the `<form>` tag helper submits form data with a POST, which means that parameters are passed in the HTTP message body and not in the URL as query strings. When you specify HTTP GET, the form data is passed in the URL as query strings, which enables users to bookmark the URL. The W3C guidelines recommend that you should use GET when the action does not result in an update.
+This code uses the `<form>` [tag helper](xref:mvc/views/tag-helpers/intro) to add the search text box and button. By default, the `<form>` tag helper submits form data with a POST, which means that parameters are passed in the HTTP message body and not in the URL as query strings. When you specify HTTP GET, the form data is passed in the URL as query strings, which enables users to bookmark the URL. The W3C guidelines recommend that you should use GET when the action doesn't result in an update.
 
-Run the page, enter a search string, and click Search to verify that filtering is working.
+Run the app, select the **Students** tab, enter a search string, and click Search to verify that filtering is working.
 
 ![Students index page with filtering](sort-filter-page/_static/filtering.png)
 
@@ -111,7 +110,7 @@ To add paging to the Students Index page, you'll create a `PaginatedList` class 
 
 ![Students index page with paging links](sort-filter-page/_static/paging.png)
 
-In the project folder create `PaginatedList.cs`, and then replace the template code with the following code.
+In the project folder, create `PaginatedList.cs`, and then replace the template code with the following code.
 
 [!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
 
@@ -141,7 +140,7 @@ The `ViewData` element named CurrentSort provides the view with the current sort
 
 The `ViewData` element named CurrentFilter provides the view with the current filter string. This value must be included in the paging links in order to maintain the filter settings during paging, and it must be restored to the text box when the page is redisplayed.
 
-If the search string is changed during paging, the page has to be reset to 1, because the new filter can result in different data to display. The search string is changed when a value is entered in the text box and the Submit button is pressed. In that case, the `searchString` parameter is not null.
+If the search string is changed during paging, the page has to be reset to 1, because the new filter can result in different data to display. The search string is changed when a value is entered in the text box and the Submit button is pressed. In that case, the `searchString` parameter isn't null.
 
 ```csharp
 if (searchString != null)
@@ -166,7 +165,7 @@ The `PaginatedList.CreateAsync` method takes a page number. The two question mar
 
 In *Views/Students/Index.cshtml*, replace the existing code with the following code. The changes are highlighted.
 
-[!code-html[](intro/samples/cu/Views/Students/Index.cshtml?highlight=1,30,33,61-79)]
+[!code-html[](intro/samples/cu/Views/Students/Index.cshtml?highlight=1,27,30,33,61-79)]
 
 The `@model` statement at the top of the page specifies that the view now gets a `PaginatedList<T>` object instead of a `List<T>` object.
 
@@ -183,12 +182,12 @@ The paging buttons are displayed by tag helpers:
    asp-route-sortOrder="@ViewData["CurrentSort"]"
    asp-route-page="@(Model.PageIndex - 1)"
    asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default @prevDisabled btn">
+   class="btn btn-default @prevDisabled">
    Previous
 </a>
 ```
 
-Run the page.
+Run the app and go to the Students page.
 
 ![Students index page with paging links](sort-filter-page/_static/paging.png)
 
@@ -208,7 +207,7 @@ For the Contoso University website's **About** page, you'll display how many stu
 
 Create a *SchoolViewModels* folder in the *Models* folder.
 
-In the new folder, add a class file EnrollmentDateGroup.cs and replace the template code with the following code:
+In the new folder, add a class file *EnrollmentDateGroup.cs* and replace the template code with the following code:
 
 [!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
@@ -236,13 +235,13 @@ Replace the code in the *Views/Home/About.cshtml* file with the following code:
 
 [!code-html[](intro/samples/cu/Views/Home/About.cshtml)]
 
-Run the app and click the **About** link. The count of students for each enrollment date is displayed in a table.
+Run the app and go to the About page. The count of students for each enrollment date is displayed in a table.
 
 ![About page](sort-filter-page/_static/about.png)
 
 ## Summary
 
-In this tutorial you've seen how to perform sorting, filtering, paging, and grouping. In the next tutorial you'll learn how to handle data model changes by using migrations.
+In this tutorial, you've seen how to perform sorting, filtering, paging, and grouping. In the next tutorial, you'll learn how to handle data model changes by using migrations.
 
 >[!div class="step-by-step"]
 [Previous](crud.md)

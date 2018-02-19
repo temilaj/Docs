@@ -1,4 +1,5 @@
 ---
+uid: web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 title: "ASP.NET Web Deployment using Visual Studio: Command Line Deployment | Microsoft Docs"
 author: tdykstra
 description: "This tutorial series shows you how to deploy (publish) an ASP.NET web application to Azure App Service Web Apps or to a third-party hosting provider, by usin..."
@@ -33,7 +34,7 @@ Currently the About page displays the template code.
 
 You'll replace that with code that displays a summary of student enrollment.
 
-Open the *About.aspx* page, delete all of the markup inside the `MainContent``Content` element, and insert the following markup in its place:
+Open the *About.aspx* page, delete all of the markup inside the `MainContent` `Content` element, and insert the following markup in its place:
 
 [!code-aspx[Main](command-line-deployment/samples/sample1.aspx)]
 

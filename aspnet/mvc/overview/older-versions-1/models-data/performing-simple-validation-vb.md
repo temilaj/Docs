@@ -1,4 +1,5 @@
 ---
+uid: mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
 title: "Performing Simple Validation (VB) | Microsoft Docs"
 author: StephenWalther
 description: "Learn how to perform validation in an ASP.NET MVC application. In this tutorial, Stephen Walther introduces you to model state and the validation HTML helper..."
@@ -29,7 +30,7 @@ You use model state - or more accurately, the model state dictionary - to repres
 I'm not recommending that you add your validation or database logic to a controller. A controller should contain only logic related to application flow control. We are taking a shortcut to keep things simple.
 
 
-**Listing 1 - Controllers\ProductController.<wbr />vb**
+**Listing 1 - Controllers\ProductController.vb**
 
 [!code-vb[Main](performing-simple-validation-vb/samples/sample1.vb)]
 
